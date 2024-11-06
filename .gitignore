@@ -1,6 +1,6 @@
 # data
-.zip
-.fastq
+*.zip
+*.fastq
 
 
 # Byte-compiled / optimized / DLL files
