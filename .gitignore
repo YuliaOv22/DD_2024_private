@@ -1,9 +1,7 @@
 # data
 *.zip
 *.fastq
-spades/*
-!spades/contigs.fasta
-!spades/scaffolds.fasta
+spades/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
