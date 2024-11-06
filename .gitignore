@@ -1,7 +1,7 @@
 # data
 *.zip
 *.fastq
-spades/*
+spades/
 !spades/contigs.fasta
 !spades/scaffolds.fasta
 
