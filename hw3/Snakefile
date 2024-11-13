@@ -3,18 +3,16 @@ from datetime import datetime
 import json
 import re
 
-samples_path = os.path.abspath('samples.csv')
 today_date = datetime.now().strftime("%m%d%Y")
 
+# Загрузка экземпляров и выделение префикса
+samples_path = os.path.abspath('samples.csv')
 with open(samples_path, 'r') as f:
-    samples = [i.strip().split(',')[1][:-11] for i in f.readlines()]
+    samples = [i.strip().split(',')[1] for i in f.readlines()]
+    samples = [re.sub(r'\_1.fastq\.gz$', '', i) for i in samples]
+print(samples)
 
-# fastqc_out = os.path.abspath("test_output/fastqc")
-# spades_out = os.path.abspath("test_output/spades")
-# quast_out = os.path.abspath("test_output/quast")
-# prokka_out = os.path.abspath("test_output/prokka")
-
-# Загрузка параметров из файла params.json
+# Загрузка параметров
 with open('params.json', 'r') as f:
     params = json.load(f)
 
@@ -28,22 +26,15 @@ prokka_out = os.path.abspath(f'{outdir_path['outdir']}/{params['prokka_params'][
 abricate_out = os.path.abspath(f'{outdir_path['outdir']}/{params['abricate_params']['outdir']}')
 databases = params['abricate_params']['databases']
 
-
+# Правила
 rule all:
     input:
-        expand(f'{fastqc_out}/{{sample}}_1_fastqc.html', sample=samples),
-        expand(f'{spades_out}/{{sample}}/scaffolds.fasta', sample=samples),
-        expand(f'{spades_out}/{{sample}}/contigs.fasta', sample=samples),
-        expand(f'{quast_out}/{{sample}}/report.txt', sample=samples),
-        expand(f'{prokka_out}/{{sample}}/PROKKA_{today_date}.gff', sample=samples),
         expand(f'{abricate_out}/{{prefix}}/results_{{db}}.tab', prefix=samples, db=databases)
 
 
 # Контроль качества ридов (FastQC)
 rule fastqc:
     input:
-        # in_1 = './test_input/SRR31122807_1.fastq.gz',
-        # in_2 = './test_input/SRR31122807_2.fastq.gz'
         in_1 = 'test_input/{sample}_1.fastq.gz',
         in_2 = 'test_input/{sample}_2.fastq.gz'
 
