@@ -4,6 +4,7 @@
 *.fastq.gz
 *.fasta
 spades/
+quast/
 SRR31122807/
 SRR31305919/
 test_input/*
