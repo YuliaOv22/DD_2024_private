@@ -1,9 +1,0 @@
-- "left reads":
-  - "/home/juliaju_o/DD_2024_private/hw3/SRR31122807/spades_output/corrected/SRR31122807_1.fastq00.0_0.cor.fastq.gz"
-  "number": !!int "1"
-  "orientation": "fr"
-  "right reads":
-  - "/home/juliaju_o/DD_2024_private/hw3/SRR31122807/spades_output/corrected/SRR31122807_2.fastq00.0_0.cor.fastq.gz"
-  "single reads":
-  - "/home/juliaju_o/DD_2024_private/hw3/SRR31122807/spades_output/corrected/SRR31122807__unpaired00.0_0.cor.fastq.gz"
-  "type": "paired-end"
