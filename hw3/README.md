@@ -1,4 +1,4 @@
-# Bioinformatics Pipeline for Genome Assembly and Annotation with Snakemake
+# Snakemake Pipeline for Genome Assembly and Annotation 
 
 This repository contains a Snakemake pipeline for genome assembly and annotation. The pipeline includes steps for quality control, genome assembly, quality assessment, and annotation. Below, you will find detailed instructions on how to set up and run the pipeline, as well as information on the input and output files.
 
