@@ -1,77 +1,66 @@
-Bioinformatics Pipeline for Genome Assembly and Annotation
+# Bioinformatics Pipeline for Genome Assembly and Annotation with Snakemake
+
 This repository contains a Snakemake pipeline for genome assembly and annotation. The pipeline includes steps for quality control, genome assembly, quality assessment, and annotation. Below, you will find detailed instructions on how to set up and run the pipeline, as well as information on the input and output files.
 
 Table of Contents
-Overview
+- [Overview][1]
+- [Requirements][2]
+- [Installation][3]
+- [Configuration][4]
+- [Running the Pipeline][5]
+- [Input Files][6]
+- [Output Files][7]
+- [Troubleshooting][8]
+- [License][9]
 
-Requirements
+## Overview
+[1]: Overview
 
-Installation
-
-Configuration
-
-Running the Pipeline
-
-Input Files
-
-Output Files
-
-Customization
-
-Examples
-
-Troubleshooting
-
-License
-
-Overview
 The pipeline consists of the following steps:
 
-Quality Control (FastQC): Assesses the quality of raw sequencing reads.
+1. Quality Control (FastQC): Assesses the quality of raw sequencing reads.
+2. Genome Assembly (SPAdes): Assembles the genome from paired-end reads.
+3. Quality Assessment (QUAST): Evaluates the quality of the assembled genome.
+4. Genome Annotation (Prokka): Annotates the assembled genome.
+5. Annotation Analysis (Abricate): Analyzes the annotated genome for antimicrobial resistance genes.
 
-Genome Assembly (SPAdes): Assembles the genome from paired-end reads.
+## Requirements
+[2]: Requirements
 
-Quality Assessment (QUAST): Evaluates the quality of the assembled genome.
+- Python 3.x
+- Snakemake 8.x
+- Conda (for managing environments)
+- FastQC
+- SPAdes
+- QUAST
+- Prokka
+- Blast=2.9.0
+- Abricate
 
-Genome Annotation (Prokka): Annotates the assembled genome.
+## Installation
+[3]: Installation
 
-Annotation Analysis (Abricate): Analyzes the annotated genome for antimicrobial resistance genes.
+--bash
 
-Requirements
-Python 3.x
-
-Snakemake
-
-Conda (for managing environments)
-
-FastQC
-
-SPAdes
-
-QUAST
-
-Prokka
-
-Abricate
-
-Installation
-Clone the repository:
-
-bash
-Copy
+**Clone the repository:**
+```
 git clone https://github.com/yourusername/bioinformatics-pipeline.git
 cd bioinformatics-pipeline
-Set up the Conda environment:
+```
 
-bash
-Copy
+**Set up the Conda environment:**
+```
 conda env create -f environment.yaml
 conda activate bioinformatics-pipeline
-Configuration
+```
+
+## Configuration
+[4]: Configuration
+
 The pipeline uses a params.json file to configure parameters such as output directories and tool-specific settings. Below is an example of the params.json file:
 
-json
-Copy
+--json
+```
 {
     "fastqc_out": "test_output/fastqc",
     "spades_out": "test_output/spades",
@@ -80,16 +69,13 @@ Copy
     "abricate_out": "test_output/abricate",
     "databases": ["ncbi", "resfinder", "vfdb"],
     "fastqc_params": {
-        "threads": 4,
-        "memory": "8G"
+        "threads": 4
     },
     "spades_params": {
-        "threads": 8,
-        "memory": "16G"
+        "threads": 8
     },
     "quast_params": {
-        "threads": 4,
-        "memory": "8G"
+        "threads": 4
     },
     "prokka_params": {
         "kingdom": "Bacteria",
@@ -97,145 +83,83 @@ Copy
         "species": "coli"
     },
     "abricate_params": {
-        "threads": 4,
-        "memory": "8G"
+        "threads": 4
     }
 }
-Running the Pipeline
+```
+
+## Running the Pipeline
+[5]: Running_the_Pipeline
 To run the pipeline, use the following command:
 
-bash
-Copy
-snakemake --use-conda --cores 8
-This command will execute the pipeline using 8 cores and will automatically create and use the Conda environments specified in the Snakefile.
+--bash
+```
+snakemake --use-conda -j 4
+```
+This command will execute the pipeline using 4 cores and will automatically create and use the Conda environments specified in the Snakefile.
 
-Input Files
+## Input Files
+[6]: Input_Files
+
 The pipeline expects paired-end FASTQ files in the test_input directory. The filenames should follow the pattern {sample}_1.fastq.gz and {sample}_2.fastq.gz.
+In addition input files can contain assambly with the pattern {sample}_scaffolds.fasta.
+Samples is read from the file sample.csv.
 
-Example:
+Examples:
 
-Copy
+```
 test_input/
 ├── SRR31122807_1.fastq.gz
 ├── SRR31122807_2.fastq.gz
 ├── SRR31305919_1.fastq.gz
-└── SRR31305919_2.fastq.gz
-Output Files
+├── SRR31305919_2.fastq.gz
+└── SRR31305919_scaffolds.fasta
+```
+
+Below is an example of the sample.csv file:
+
+--csv
+```
+1,SRR31122807_1.fastq.gz,SRR31122807_2.fastq.gz
+2,SRR31305919_1.fastq.gz,SRR31305919_2.fastq.gz,SRR31305919_scaffolds.fasta
+```
+
+Download reads you can on the website of [**National Library of Medicine**](https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/)
+
+--conda
+```
+conda install -c bioconda -c conda-forge sra-tools
+prefetch SRR31122807
+fastq-dump --split-files --gzip SRR31122807.sra
+```
+
+## Output Files
+[7]: Output_Files
+
 The pipeline generates the following output files:
 
-FastQC: Quality control reports in HTML and ZIP formats.
+- FastQC: Quality control reports in HTML and ZIP formats.
+- SPAdes: Assembled scaffolds and contigs in FASTA format.
+- QUAST: Quality assessment report in various types format.
+- Prokka: Genome annotation in various types format.
+- Abricate: Annotation analysis reports in TAB format (can be customized).
 
-SPAdes: Assembled scaffolds and contigs in FASTA format.
 
-QUAST: Quality assessment report in TXT format.
+## Troubleshooting
+[8]: Troubleshooting
 
-Prokka: Genome annotation in GFF format.
-
-Abricate: Annotation analysis reports in TAB format.
-
-Example output directory structure:
-
-Copy
-test_output/
-├── fastqc/
-│   ├── SRR31122807_1_fastqc.html
-│   ├── SRR31122807_1_fastqc.zip
-│   ├── SRR31122807_2_fastqc.html
-│   ├── SRR31122807_2_fastqc.zip
-│   ├── SRR31305919_1_fastqc.html
-│   ├── SRR31305919_1_fastqc.zip
-│   ├── SRR31305919_2_fastqc.html
-│   └── SRR31305919_2_fastqc.zip
-├── spades/
-│   ├── SRR31122807/
-│   │   ├── scaffolds.fasta
-│   │   └── contigs.fasta
-│   └── SRR31305919/
-│       ├── scaffolds.fasta
-│       └── contigs.fasta
-├── quast/
-│   ├── SRR31122807/
-│   │   └── report.txt
-│   └── SRR31305919/
-│       └── report.txt
-├── prokka/
-│   ├── SRR31122807/
-│   │   └── PROKKA_11132024.gff
-│   └── SRR31305919/
-│       └── PROKKA_11132024.gff
-└── abricate/
-    ├── SRR31122807/
-    │   ├── results_ncbi.tab
-    │   ├── results_resfinder.tab
-    │   └── results_vfdb.tab
-    └── SRR31305919/
-        ├── results_ncbi.tab
-        ├── results_resfinder.tab
-        └── results_vfdb.tab
-Customization
-You can customize the pipeline by modifying the params.json file and the Snakefile. The params.json file allows you to configure tool-specific parameters, while the Snakefile allows you to modify the pipeline steps and dependencies.
-
-Skipping Steps
-You can skip specific steps by adding the sample prefix to the skip_steps list in the Snakefile. For example:
-
-python
-Copy
-skip_steps = {
-    'prefix': ['SRR292678sub']
-}
-This will skip the FastQC and SPAdes steps for samples with the prefix SRR292678sub.
-
-Examples
-Running the Pipeline with Default Parameters
-bash
-Copy
-snakemake --use-conda --cores 8
-Running the Pipeline with Increased Latency Wait
-bash
-Copy
-snakemake --use-conda --cores 8 --latency-wait 60
-Running the Pipeline with Specific Samples
-bash
-Copy
-snakemake --use-conda --cores 8 --samples SRR31122807 SRR31305919
-Troubleshooting
 If you encounter any issues while running the pipeline, please check the following:
 
-Input Files: Ensure that the input FASTQ files are correctly named and placed in the test_input directory.
+**Input Files**: Ensure that the input FASTQ files are correctly named and placed in the test_input directory.
 
-Permissions: Ensure that you have the necessary permissions to read and write files in the working directory.
+**Permissions**: Ensure that you have the necessary permissions to read and write files in the working directory.
 
-Dependencies: Ensure that all required tools are installed and available in the Conda environment.
+**Dependencies**: Ensure that all required tools are installed and available in the Conda environment.
 
-License
+**Warning** Support for alternative conda frontends has been deprecated in favor of simpler support and code base. This should not cause issues since current conda releases rely on fast solving via libmamba. Ignoring the alternative conda frontend setting (mamba).
+
+## License
+[9]: License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 Feel free to contribute to this project by submitting issues or pull requests. Happy bioinformatics!
-
-
-https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/ здесь инструкция как искать и качать
-
-Установить sra-tools через conda с скачать данные Covid:
-conda install -c bioconda -c conda-forge sra-tools
-prefetch SRR31122807 
-
-добавить риды и сборки в test_input
-
-conda create -n snakemake -c conda-forge snakemake
-fastq-dump --split-files --gzip SRR31122807.sra
-fastqc SRR31122807_1.fastq.gz  SRR31122807_2.fastq.gz
-spades.py -1 SRR31305919_1.fastq.gz -2 SRR31305919_2.fastq.gz -o spades_output
-quast.py contigs.fasta scaffolds.fasta -o ../quast/
-prokka --outdir ./prokka ./spades/scaffolds.fasta
-
-abricate --db ncbi ../spades/scaffolds.fasta > results_ncbi.tab
-# abricate --db resfinder ../spades/scaffolds.fasta > results_resfinder.tab
-
-
-snakemake --use-conda
-snakemake --use-conda --conda-frontend mamba -j 4
-
-Сообщение об ошибке указывает, что Snakemake больше не поддерживает установку окружений с использованием альтернативных интерфейсов для conda, таких как mamba. Вместо этого Snakemake теперь полагается на улучшения в стандартном conda, включая libmamba для быстрого решения зависимостей.
-
-snakemake --use-conda -j 4
-
