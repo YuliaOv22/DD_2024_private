@@ -1,5 +1,7 @@
 import os
 from datetime import datetime
+import json
+import re
 
 samples_path = os.path.abspath('samples.csv')
 today_date = datetime.now().strftime("%m%d%Y")
@@ -7,10 +9,25 @@ today_date = datetime.now().strftime("%m%d%Y")
 with open(samples_path, 'r') as f:
     samples = [i.strip().split(',')[1][:-11] for i in f.readlines()]
 
-fastqc_out = os.path.abspath("test_output/fastqc")
-spades_out = os.path.abspath("test_output/spades")
-quast_out = os.path.abspath("test_output/quast")
-prokka_out = os.path.abspath("test_output/prokka")
+# fastqc_out = os.path.abspath("test_output/fastqc")
+# spades_out = os.path.abspath("test_output/spades")
+# quast_out = os.path.abspath("test_output/quast")
+# prokka_out = os.path.abspath("test_output/prokka")
+
+# Загрузка параметров из файла params.json
+with open('params.json', 'r') as f:
+    params = json.load(f)
+
+outdir_path = params['global_params']
+
+# Использование параметров
+fastqc_out = os.path.abspath(f"{outdir_path['outdir']}/{params['fastqc_params']['outdir']}")
+spades_out = os.path.abspath(f'{outdir_path['outdir']}/{params['spades_params']['outdir']}')
+quast_out = os.path.abspath(f'{outdir_path['outdir']}/{params['quast_params']['outdir']}')
+prokka_out = os.path.abspath(f'{outdir_path['outdir']}/{params['prokka_params']['outdir']}')
+abricate_out = os.path.abspath(f'{outdir_path['outdir']}/{params['abricate_params']['outdir']}')
+databases = params['abricate_params']['databases']
+
 
 rule all:
     input:
@@ -19,6 +36,7 @@ rule all:
         expand(f'{spades_out}/{{sample}}/contigs.fasta', sample=samples),
         expand(f'{quast_out}/{{sample}}/report.txt', sample=samples),
         expand(f'{prokka_out}/{{sample}}/PROKKA_{today_date}.gff', sample=samples),
+        expand(f'{abricate_out}/{{prefix}}/results_{{db}}.tab', prefix=samples, db=databases)
 
 
 # Контроль качества ридов (FastQC)
@@ -36,7 +54,8 @@ rule fastqc:
         fastqc_html_2 = f'{fastqc_out}/{{sample}}_2_fastqc.html',
         fatqc_zip_2 = f'{fastqc_out}/{{sample}}_2_fastqc.zip'
     params: 
-        fastqc_outdir = fastqc_out
+        fastqc_outdir = fastqc_out,
+        threads = params['fastqc_params']['threads']
     shell:
         'fastqc {input.in_1} {input.in_2} -o {params.fastqc_outdir}'
     
@@ -52,7 +71,8 @@ rule spades:
         spades_contigs = f'{spades_out}/{{sample}}/contigs.fasta'
 
     params: 
-        spades_outdir = f'{spades_out}/{{sample}}'
+        spades_outdir = f'{spades_out}/{{sample}}',
+        threads = params['spades_params']['threads']
     shell:
         'spades.py -1 {input.in_1} -2 {input.in_2} -o {params.spades_outdir}'
 
@@ -66,7 +86,8 @@ rule quast:
     output:
         quast_report = f'{quast_out}/{{sample}}/report.txt'
     params: 
-        quast_outdir = f'{quast_out}/{{sample}}'
+        quast_outdir = f'{quast_out}/{{sample}}',
+        threads = params['quast_params']['threads']
     shell:
         'quast.py {input.in_1} {input.in_2} -o {params.quast_outdir}'
 
@@ -82,3 +103,20 @@ rule prokka:
         prokka_outdir = f'{prokka_out}/{{sample}}'
     shell:
         'prokka --outdir {params.prokka_outdir} --force {input.in_1}'
+
+
+# Поиск генов устойчивости и вирулентности (Abricate)
+rule abricate:
+    input:
+        in_1 = f'{spades_out}/{{prefix}}/scaffolds.fasta'
+    conda: "./envs/abricate.yaml"
+    output:
+        f'{abricate_out}/{{prefix}}/results_{{db}}.tab'
+    params: 
+        abricate_outdir = f'{abricate_out}/{{prefix}}',
+        threads = params['quast_params']['threads']
+    shell:
+        '''       
+        abricate --db {wildcards.db} {input.in_1} --threads {params.threads} > {params.abricate_outdir}/results_{wildcards.db}.tab  \
+        || echo "No results found" > {params.abricate_outdir}/results_{wildcards.db}.tab         
+        '''

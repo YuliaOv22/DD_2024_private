@@ -1,0 +1,38 @@
+Command line: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/bin/spades.py	-1	/home/juliaju_o/DD_2024_private/hw3/test_input/SRR31305919_1.fastq.gz	-2	/home/juliaju_o/DD_2024_private/hw3/test_input/SRR31305919_2.fastq.gz	-o	/home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919	
+
+System information:
+  SPAdes version: 4.0.0
+  Python version: 3.13.0
+  OS: Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.27
+
+Output dir: /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919
+Mode: read error correction and assembling
+Debug mode is turned OFF
+
+Dataset parameters:
+  Standard mode
+  For multi-cell/isolate data we recommend to use '--isolate' option; for single-cell MDA data use '--sc'; for metagenomic data use '--meta'; for RNA-Seq use '--rna'.
+  Reads:
+    Library number: 1, library type: paired-end
+      orientation: fr
+      left reads: ['/home/juliaju_o/DD_2024_private/hw3/test_input/SRR31305919_1.fastq.gz']
+      right reads: ['/home/juliaju_o/DD_2024_private/hw3/test_input/SRR31305919_2.fastq.gz']
+      interlaced reads: not specified
+      single reads: not specified
+      merged reads: not specified
+Read error correction parameters:
+  Iterations: 1
+  PHRED offset will be auto-detected
+  Corrected reads will be compressed
+Assembly parameters:
+  k: automatic selection based on read length
+  Repeat resolution is enabled
+  Mismatch careful mode is turned OFF
+  MismatchCorrector will be SKIPPED
+  Coverage cutoff is turned OFF
+  Assembly graph output will use GFA v1.2 format
+Other parameters:
+  Dir for temp files: /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/tmp
+  Threads: 16
+  Memory limit (in Gb): 7
+
