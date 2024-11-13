@@ -19,16 +19,15 @@ print(samples)
 #     fastqc_out.append(os.path.abspath(f'./test_output/fastqc{parse_prefix}'))
 
 fastqc_out = os.path.abspath("test_output/fastqc")
+spades_out = os.path.abspath("test_output/spades")
 # # fastp_out = os.path.abspath("./test_output/fastp")
 # prefix = 'SRR31122807'
 # # prefix_trimmed = "SRR31122807_trim"
 
 rule all:
     input:
-        expand(f'{fastqc_out}/{{sample}}_1_fastqc.html', sample=samples)
-        # fastqc_results = f'{fastqc_out}/{prefix_list[0]}_1_fastqc.html',
-# #         fastp_results = f"{fastp_out}/{prefix_trimmed}_1.fastq.gz",
-# #         fasqc_trim_results = f'{fastqc_out}/{prefix_trimmed}_1_fastqc.html'
+        expand(f'{fastqc_out}/{{sample}}_1_fastqc.html', sample=samples),
+        expand(f'{spades_out}/{{sample}}/scaffolds.fasta', sample=samples)
 
 
 # Контроль качества ридов (FastQC)
@@ -55,17 +54,18 @@ rule fastqc:
         'fastqc {input.in_1} {input.in_2} -o {params.fastqc_outdir}'
     
 
-# # потом хотим провети тримминг
-# rule trimming:
-#     input:
-#         in_1 = read_1,
-#         in_2 = read_2
-#     conda: "./envs/fastp.yaml"
-#     output:
-#         fastp_out_1 = f"{fastp_out}/{prefix_trimmed}_1.fastq.gz",
-#         fastp_out_2 = f"{fastp_out}/{prefix_trimmed}_2.fastq.gz"
-#     shell:
-#         "fastp -i {input.in_1} -I {input.in_2} -o {output.fastp_out_1} -O {output.fastp_out_2}"
+# Сборка генома (SPAdes)
+rule spades:
+    input:
+        in_1 = 'test_input/{sample}_1.fastq.gz',
+        in_2 = 'test_input/{sample}_2.fastq.gz'
+    conda: "./envs/spades.yaml"
+    output:
+        spades_scaffolds = f'{spades_out}/{{sample}}/scaffolds.fasta'
+    params: 
+        spades_outdir = f'{spades_out}/{{sample}}'
+    shell:
+        'spades.py -1 {input.in_1} -2 {input.in_2} -o {params.spades_outdir}'
 
 
 # # потом хотим проверить качетсво данных после триммингп
