@@ -1,0 +1,87 @@
+import os
+
+samples_path = os.path.abspath('samples.csv')
+
+with open(samples_path, 'r') as f:
+    # samples = f.readlines()
+    samples = [i.strip().split(',')[1][:-11] for i in f.readlines()]
+print(samples)
+# prefix_list = []
+# reads_1_path = []
+# reads_2_path = []
+# fastqc_out = []
+
+# for i in range(len(samples)):
+#     parse_prefix = samples[i].strip().split(',')[1][:-11]
+#     prefix_list.append(parse_prefix)
+#     reads_1_path.append(os.path.abspath(f'test_input/{parse_prefix}_1.fastq.gz'))
+#     reads_2_path.append(os.path.abspath(f'test_input/{parse_prefix}_2.fastq.gz'))
+#     fastqc_out.append(os.path.abspath(f'./test_output/fastqc{parse_prefix}'))
+
+fastqc_out = os.path.abspath("test_output/fastqc")
+# # fastp_out = os.path.abspath("./test_output/fastp")
+# prefix = 'SRR31122807'
+# # prefix_trimmed = "SRR31122807_trim"
+
+rule all:
+    input:
+        expand(f'{fastqc_out}/{{sample}}_1_fastqc.html', sample=samples)
+        # fastqc_results = f'{fastqc_out}/{prefix_list[0]}_1_fastqc.html',
+# #         fastp_results = f"{fastp_out}/{prefix_trimmed}_1.fastq.gz",
+# #         fasqc_trim_results = f'{fastqc_out}/{prefix_trimmed}_1_fastqc.html'
+
+
+# Контроль качества ридов (FastQC)
+rule fastqc:
+    input:
+        # for i in reads_1_path:
+        #     in_1 = reads_1_path[i],
+        #     in_2 = reads_2_path[i]
+        # in_1 = './test_input/SRR31122807_1.fastq.gz',
+        # in_2 = './test_input/SRR31122807_2.fastq.gz'
+        in_1 = 'test_input/{sample}_1.fastq.gz',
+        in_2 = 'test_input/{sample}_2.fastq.gz'
+
+    conda: 'envs/fastqc.yaml'
+    output:
+        fastqc_html_1 = f'{fastqc_out}/{{sample}}_1_fastqc.html',
+        fatqc_zip_1 = f'{fastqc_out}/{{sample}}_1_fastqc.zip',
+        fastqc_html_2 = f'{fastqc_out}/{{sample}}_2_fastqc.html',
+        fatqc_zip_2 = f'{fastqc_out}/{{sample}}_2_fastqc.zip'
+    params: 
+        fastqc_outdir = fastqc_out
+    shell:
+        # """fastqc {input.in_1} {input.in_2} -o {params.fastqc_outdir}"""
+        'fastqc {input.in_1} {input.in_2} -o {params.fastqc_outdir}'
+    
+
+# # потом хотим провети тримминг
+# rule trimming:
+#     input:
+#         in_1 = read_1,
+#         in_2 = read_2
+#     conda: "./envs/fastp.yaml"
+#     output:
+#         fastp_out_1 = f"{fastp_out}/{prefix_trimmed}_1.fastq.gz",
+#         fastp_out_2 = f"{fastp_out}/{prefix_trimmed}_2.fastq.gz"
+#     shell:
+#         "fastp -i {input.in_1} -I {input.in_2} -o {output.fastp_out_1} -O {output.fastp_out_2}"
+
+
+# # потом хотим проверить качетсво данных после триммингп
+# rule fastqc_trimmed:
+#     input:
+#         in_1 = rules.trimming.output.fastp_out_1,
+#         in_2 = rules.trimming.output.fastp_out_2
+#     conda: "./envs/fastqc.yaml"
+#     container:
+#         "biocontainers/fastqc:v0.11.9_cv8"
+#     output:
+#         fastqc_raw_out_html_1 = f'{fastqc_out}/{prefix_trimmed}_1_fastqc.html',
+#         fatqc_raw_out_zip_1 = f'{fastqc_out}/{prefix_trimmed}_1_fastqc.zip',
+#         fastqc_raw_out_html_2 = f'{fastqc_out}/{prefix_trimmed}_2_fastqc.html',
+#         fatqc_raw_out_zip_2 = f'{fastqc_out}/{prefix_trimmed}_2_fastqc.zip'
+#     params: 
+#         fastqc_outdir = fastqc_out
+#     shell:
+#         "fastqc {input.in_1} {input.in_2} -o {params.fastqc_outdir}"
