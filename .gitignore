@@ -5,6 +5,7 @@
 *.fasta
 spades/
 quast/
+prokka/
 SRR31122807/
 SRR31305919/
 test_input/*

@@ -1,6 +1,8 @@
 import os
+from datetime import datetime
 
 samples_path = os.path.abspath('samples.csv')
+today_date = datetime.now().strftime("%m%d%Y")
 
 with open(samples_path, 'r') as f:
     samples = [i.strip().split(',')[1][:-11] for i in f.readlines()]
@@ -8,6 +10,7 @@ with open(samples_path, 'r') as f:
 fastqc_out = os.path.abspath("test_output/fastqc")
 spades_out = os.path.abspath("test_output/spades")
 quast_out = os.path.abspath("test_output/quast")
+prokka_out = os.path.abspath("test_output/prokka")
 
 rule all:
     input:
@@ -15,6 +18,7 @@ rule all:
         expand(f'{spades_out}/{{sample}}/scaffolds.fasta', sample=samples),
         expand(f'{spades_out}/{{sample}}/contigs.fasta', sample=samples),
         expand(f'{quast_out}/{{sample}}/report.txt', sample=samples),
+        expand(f'{prokka_out}/{{sample}}/PROKKA_{today_date}.gff', sample=samples),
 
 
 # Контроль качества ридов (FastQC)
@@ -65,3 +69,16 @@ rule quast:
         quast_outdir = f'{quast_out}/{{sample}}'
     shell:
         'quast.py {input.in_1} {input.in_2} -o {params.quast_outdir}'
+
+
+# Аннотация генома (Prokka)
+rule prokka:
+    input:
+        in_1 = f'{spades_out}/{{sample}}/scaffolds.fasta'
+    conda: "./envs/prokka.yaml"
+    output:
+        prokka_annotation = f'{prokka_out}/{{sample}}/PROKKA_{today_date}.gff'
+    params: 
+        prokka_outdir = f'{prokka_out}/{{sample}}'
+    shell:
+        'prokka --outdir {params.prokka_outdir} --force {input.in_1}'
