@@ -1,11 +1,7 @@
 - STAGE: Before start
   args: []
   config_dir: ''
-  del_after:
-  - tmp/hammer_9xshibjn
-  - .bin_reads
-  - tmp/spades_nnlg9tth
-  - configs
+  del_after: []
   output_files: []
   path: 'true'
   short_name: before_start
@@ -21,7 +17,7 @@
   - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31122807/corrected/configs/config.info
   config_dir: corrected
   del_after:
-  - tmp/hammer_00rto2w8
+  - tmp/hammer_l57lj0u0
   output_files:
   - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31122807/corrected/corrected.yaml
   path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/bin/spades-hammer
@@ -131,7 +127,7 @@
   config_dir: ''
   del_after:
   - .bin_reads
-  - tmp/spades_sjaxplpp
+  - tmp/spades_o8mxfe2g
   output_files: []
   path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/bin/python3
   short_name: copy_files

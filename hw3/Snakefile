@@ -5,12 +5,28 @@ import re
 
 today_date = datetime.now().strftime("%m%d%Y")
 
+# # Загрузка экземпляров и выделение префикса
+# samples_path = os.path.abspath('samples.csv')
+# with open(samples_path, 'r') as f:
+#     samples = [i.strip().split(',')[1] for i in f.readlines()]
+#     samples = [re.sub(r'\_1.fastq\.gz$', '', i) for i in samples]
+# print(samples)
+
 # Загрузка экземпляров и выделение префикса
 samples_path = os.path.abspath('samples.csv')
 with open(samples_path, 'r') as f:
-    samples = [i.strip().split(',')[1] for i in f.readlines()]
-    samples = [re.sub(r'\_1.fastq\.gz$', '', i) for i in samples]
-print(samples)
+    samples_reads = [i.strip().split(',') for i in f.readlines()]
+    samples = [re.sub(r'\_1.fastq\.gz$', '', i[1]) for i in samples_reads]
+print(f'Образцы для исследования: {samples}')
+
+# Проверка наличия файлов с расширением fasta для каждого образца
+skip_samples = {'prefix': []}
+for i, sample in enumerate(samples_reads):   
+    fasta_true = [True for i in sample if '.fasta' in i]
+    if True in fasta_true:
+        skip_samples['prefix'].append(samples[i])
+print(f"Пропускаем шаги FastQC и SPAdes для образцов: {skip_samples['prefix']}")
+filtered_samples = [s for s in samples if s not in skip_samples['prefix']]
 
 # Загрузка параметров
 with open('params.json', 'r') as f:
@@ -27,9 +43,15 @@ abricate_out = os.path.abspath(f'{outdir_path['outdir']}/{params['abricate_param
 databases = params['abricate_params']['databases']
 
 # Правила
+# Чтобы выполнялись все правила, нужно прописать проверку выходных файлов для всех операций,
+# в противном случае исполняются правила только указанные в rule all
 rule all:
     input:
-        expand(f'{abricate_out}/{{prefix}}/results_{{db}}.tab', prefix=samples, db=databases)
+        expand(f'{fastqc_out}/{{sample}}_1_fastqc.html', sample=filtered_samples),
+        expand(f'{spades_out}/{{sample}}/scaffolds.fasta', sample=filtered_samples),
+        expand(f'{quast_out}/{{sample}}/report.txt', sample=samples),
+        expand(f'{prokka_out}/{{sample}}/PROKKA_{today_date}.gff', sample=samples),
+        expand(f'{abricate_out}/{{sample}}/results_{{db}}.tab', sample=samples, db=databases)
 
 
 # Контроль качества ридов (FastQC)
@@ -99,12 +121,12 @@ rule prokka:
 # Поиск генов устойчивости и вирулентности (Abricate)
 rule abricate:
     input:
-        in_1 = f'{spades_out}/{{prefix}}/scaffolds.fasta'
+        in_1 = f'{spades_out}/{{sample}}/scaffolds.fasta'
     conda: "./envs/abricate.yaml"
     output:
-        f'{abricate_out}/{{prefix}}/results_{{db}}.tab'
+        f'{abricate_out}/{{sample}}/results_{{db}}.tab'
     params: 
-        abricate_outdir = f'{abricate_out}/{{prefix}}',
+        abricate_outdir = f'{abricate_out}/{{sample}}',
         threads = params['quast_params']['threads']
     shell:
         '''       

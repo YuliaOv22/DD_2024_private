@@ -94,7 +94,7 @@ To run the pipeline, use the following command:
 
 --bash
 ```
-snakemake --use-conda -j 4
+cd <repo name>/hw3 && snakemake --use-conda
 ```
 This command will execute the pipeline using 4 cores and will automatically create and use the Conda environments specified in the Snakefile.
 
