@@ -2516,15 +2516,21 @@ var assemblies_len = {};
 var assemblies_contigs = {};
 var assemblies_misassemblies = {};
 var assemblies_n50 = {};
-assemblies_len["scaffolds"] = 62142;
-assemblies_contigs["scaffolds"] = 24;
-assemblies_n50["scaffolds"] = "15198";
-assemblies_len["contigs"] = 62042;
-assemblies_contigs["contigs"] = 25;
-assemblies_n50["contigs"] = "7594";
+assemblies_len["SRR31122807_scaffolds"] = 62142;
+assemblies_contigs["SRR31122807_scaffolds"] = 24;
+assemblies_n50["SRR31122807_scaffolds"] = "15198";
+assemblies_len["SRR31305919_scaffolds"] = 62142;
+assemblies_contigs["SRR31305919_scaffolds"] = 24;
+assemblies_n50["SRR31305919_scaffolds"] = "15198";
+assemblies_len["SRR31122807_contigs"] = 62042;
+assemblies_contigs["SRR31122807_contigs"] = 25;
+assemblies_n50["SRR31122807_contigs"] = "7594";
+assemblies_len["SRR31305919_contigs"] = 62042;
+assemblies_contigs["SRR31305919_contigs"] = 25;
+assemblies_n50["SRR31305919_contigs"] = "7594";
 var contig_data = {};
 var chromosome;
-contig_data["scaffolds"] = [ 
+contig_data["SRR31122807_scaffolds"] = [ 
 {name:"NODE_1_length_17115_cov_466.372910",size:17115,contig_type: "",structure:[]},
 {name:"NODE_2_length_15198_cov_4.975649",size:15198, marks: "N50",contig_type: "",structure:[]},
 {name:"NODE_3_length_7148_cov_337.268195",size:7148,contig_type: "",structure:[]},
@@ -2551,7 +2557,62 @@ contig_data["scaffolds"] = [
 {name:"NODE_24_length_510_cov_1.237598",size:510,contig_type: "",structure:[]}];
 
 
-contig_data["contigs"] = [ 
+contig_data["SRR31305919_scaffolds"] = [ 
+{name:"NODE_1_length_17115_cov_466.372910",size:17115,contig_type: "",structure:[]},
+{name:"NODE_2_length_15198_cov_4.975649",size:15198, marks: "N50",contig_type: "",structure:[]},
+{name:"NODE_3_length_7148_cov_337.268195",size:7148,contig_type: "",structure:[]},
+{name:"NODE_4_length_4940_cov_443.500312",size:4940,contig_type: "",structure:[]},
+{name:"NODE_5_length_2255_cov_2.634398",size:2255, marks: "N75",contig_type: "",structure:[]},
+{name:"NODE_6_length_2183_cov_2.428988",size:2183,contig_type: "",structure:[]},
+{name:"NODE_7_length_1658_cov_4.133246",size:1658,contig_type: "",structure:[]},
+{name:"NODE_8_length_1093_cov_291.265010",size:1093,contig_type: "",structure:[]},
+{name:"NODE_9_length_911_cov_1.123724",size:911,contig_type: "",structure:[]},
+{name:"NODE_10_length_851_cov_0.838398",size:851,contig_type: "",structure:[]},
+{name:"NODE_11_length_826_cov_1.204578",size:826,contig_type: "",structure:[]},
+{name:"NODE_12_length_810_cov_0.941435",size:810,contig_type: "",structure:[]},
+{name:"NODE_13_length_796_cov_1.467862",size:796,contig_type: "",structure:[]},
+{name:"NODE_14_length_724_cov_1.422111",size:724,contig_type: "",structure:[]},
+{name:"NODE_15_length_703_cov_1.164931",size:703,contig_type: "",structure:[]},
+{name:"NODE_16_length_622_cov_2.258586",size:622,contig_type: "",structure:[]},
+{name:"NODE_17_length_612_cov_1.255670",size:612,contig_type: "",structure:[]},
+{name:"NODE_18_length_586_cov_0.793028",size:586,contig_type: "",structure:[]},
+{name:"NODE_19_length_539_cov_1.502427",size:539,contig_type: "",structure:[]},
+{name:"NODE_20_length_525_cov_1.763819",size:525,contig_type: "",structure:[]},
+{name:"NODE_21_length_513_cov_1.222798",size:513,contig_type: "",structure:[]},
+{name:"NODE_22_length_513_cov_0.932642",size:513,contig_type: "",structure:[]},
+{name:"NODE_23_length_511_cov_0.479167",size:511,contig_type: "",structure:[]},
+{name:"NODE_24_length_510_cov_1.237598",size:510,contig_type: "",structure:[]}];
+
+
+contig_data["SRR31122807_contigs"] = [ 
+{name:"NODE_1_length_15198_cov_4.975649",size:15198,contig_type: "",structure:[]},
+{name:"NODE_2_length_9421_cov_418.171724",size:9421,contig_type: "",structure:[]},
+{name:"NODE_3_length_7594_cov_540.545735",size:7594, marks: "N50",contig_type: "",structure:[]},
+{name:"NODE_4_length_7148_cov_337.268195",size:7148,contig_type: "",structure:[]},
+{name:"NODE_5_length_4940_cov_443.500312",size:4940,contig_type: "",structure:[]},
+{name:"NODE_6_length_2255_cov_2.634398",size:2255, marks: "N75",contig_type: "",structure:[]},
+{name:"NODE_7_length_2183_cov_2.428988",size:2183,contig_type: "",structure:[]},
+{name:"NODE_8_length_1658_cov_4.133246",size:1658,contig_type: "",structure:[]},
+{name:"NODE_9_length_1093_cov_291.265010",size:1093,contig_type: "",structure:[]},
+{name:"NODE_10_length_911_cov_1.123724",size:911,contig_type: "",structure:[]},
+{name:"NODE_11_length_851_cov_0.838398",size:851,contig_type: "",structure:[]},
+{name:"NODE_12_length_826_cov_1.204578",size:826,contig_type: "",structure:[]},
+{name:"NODE_13_length_810_cov_0.941435",size:810,contig_type: "",structure:[]},
+{name:"NODE_14_length_796_cov_1.467862",size:796,contig_type: "",structure:[]},
+{name:"NODE_15_length_724_cov_1.422111",size:724,contig_type: "",structure:[]},
+{name:"NODE_16_length_703_cov_1.164931",size:703,contig_type: "",structure:[]},
+{name:"NODE_17_length_622_cov_2.258586",size:622,contig_type: "",structure:[]},
+{name:"NODE_18_length_612_cov_1.255670",size:612,contig_type: "",structure:[]},
+{name:"NODE_19_length_586_cov_0.793028",size:586,contig_type: "",structure:[]},
+{name:"NODE_20_length_539_cov_1.502427",size:539,contig_type: "",structure:[]},
+{name:"NODE_21_length_525_cov_1.763819",size:525,contig_type: "",structure:[]},
+{name:"NODE_22_length_513_cov_1.222798",size:513,contig_type: "",structure:[]},
+{name:"NODE_23_length_513_cov_0.932642",size:513,contig_type: "",structure:[]},
+{name:"NODE_24_length_511_cov_0.479167",size:511,contig_type: "",structure:[]},
+{name:"NODE_25_length_510_cov_1.237598",size:510,contig_type: "",structure:[]}];
+
+
+contig_data["SRR31305919_contigs"] = [ 
 {name:"NODE_1_length_15198_cov_4.975649",size:15198,contig_type: "",structure:[]},
 {name:"NODE_2_length_9421_cov_418.171724",size:9421,contig_type: "",structure:[]},
 {name:"NODE_3_length_7594_cov_540.545735",size:7594, marks: "N50",contig_type: "",structure:[]},

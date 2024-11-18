@@ -14,7 +14,7 @@ dataset /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/datas
 log_filename    log.properties
 
 output_base /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919
-tmp_dir /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/tmp/spades_m_w09_ry
+tmp_dir /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/tmp/spades_ehpkgjdm
 
 main_iteration false
 ; iterative mode switcher, activates additional contigs usage

@@ -1,7 +1,7 @@
 - "left reads":
-  - "/home/juliaju_o/DD_2024_private/hw3/test_input/SRR31305919_1.fastq.gz"
+  - "/home/juliaju_o/DD_2024_private/hw3/test_input/SRR31122807_1.fastq.gz"
   "number": !!int "1"
   "orientation": "fr"
   "right reads":
-  - "/home/juliaju_o/DD_2024_private/hw3/test_input/SRR31305919_2.fastq.gz"
+  - "/home/juliaju_o/DD_2024_private/hw3/test_input/SRR31122807_2.fastq.gz"
   "type": "paired-end"

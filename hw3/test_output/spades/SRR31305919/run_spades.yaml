@@ -17,7 +17,7 @@
   - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/corrected/configs/config.info
   config_dir: corrected
   del_after:
-  - tmp/hammer_ljgmhw5d
+  - tmp/hammer_ngy5x8mu
   output_files:
   - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/corrected/corrected.yaml
   path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/bin/spades-hammer
@@ -85,33 +85,49 @@
   output_files: []
   path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/bin/spades-core
   short_name: k77
+- STAGE: K99
+  args:
+  - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/K99/configs/config.info
+  config_dir: K99
+  del_after: []
+  output_files: []
+  path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/bin/spades-core
+  short_name: k99
+- STAGE: K127
+  args:
+  - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/K127/configs/config.info
+  config_dir: K127
+  del_after: []
+  output_files: []
+  path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/bin/spades-core
+  short_name: k127
 - STAGE: Copy files
   args:
   - /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/share/spades/spades_pipeline/scripts/copy_files.py
-  - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/K77/before_rr.fasta
+  - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/K127/before_rr.fasta
   - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/before_rr.fasta
-  - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/K77/assembly_graph_after_simplification.gfa
+  - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/K127/assembly_graph_after_simplification.gfa
   - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/assembly_graph_after_simplification.gfa
-  - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/K77/final_contigs.fasta
+  - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/K127/final_contigs.fasta
   - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/contigs.fasta
-  - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/K77/first_pe_contigs.fasta
+  - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/K127/first_pe_contigs.fasta
   - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/first_pe_contigs.fasta
-  - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/K77/strain_graph.gfa
+  - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/K127/strain_graph.gfa
   - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/strain_graph.gfa
-  - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/K77/scaffolds.fasta
+  - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/K127/scaffolds.fasta
   - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/scaffolds.fasta
-  - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/K77/scaffolds.paths
+  - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/K127/scaffolds.paths
   - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/scaffolds.paths
-  - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/K77/assembly_graph_with_scaffolds.gfa
+  - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/K127/assembly_graph_with_scaffolds.gfa
   - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/assembly_graph_with_scaffolds.gfa
-  - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/K77/assembly_graph.fastg
+  - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/K127/assembly_graph.fastg
   - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/assembly_graph.fastg
-  - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/K77/final_contigs.paths
+  - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/K127/final_contigs.paths
   - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/contigs.paths
   config_dir: ''
   del_after:
   - .bin_reads
-  - tmp/spades_m_w09_ry
+  - tmp/spades_ehpkgjdm
   output_files: []
   path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/bin/python3
   short_name: copy_files

@@ -2,46 +2,61 @@ import os
 from datetime import datetime
 import json
 import re
-
-today_date = datetime.now().strftime("%m%d%Y")
+import csv
 
 # Загрузка экземпляров и выделение префикса
 samples_path = os.path.abspath('samples.csv')
+today_date = datetime.now().strftime("%m%d%Y")
+
 with open(samples_path, 'r') as f:
-    samples_reads = [i.strip().split(',') for i in f.readlines()]
-    samples = [re.sub(r'\_1.fastq\.gz$', '', i[1]) for i in samples_reads]
-print(f'Образцы для исследования: {samples}')
+    reader = csv.DictReader(f)
+    samples_reads = [
+        {
+            'sample_id': row['sample_id'],
+            'read_1': row['read_1'],
+            'read_2': row['read_2'],
+            'assembly': row.get('assembly', '')
+        }
+        for row in reader
+    ]
+
+# Выделение префикса
+samples = [re.sub(r'\_1.fastq\.gz$', '', s['read_1']) for s in samples_reads]
 
 # Проверка наличия файлов с расширением fasta для каждого образца
-skip_samples = {'prefix': []}
-for i, sample in enumerate(samples_reads):   
-    fasta_true = [True for i in sample if '.fasta' in i]
-    if True in fasta_true:
-        skip_samples['prefix'].append(samples[i])
-print(f"Пропускаем шаги FastQC и SPAdes для образцов: {skip_samples['prefix']}")
-filtered_samples = [s for s in samples if s not in skip_samples['prefix']]
+skip_fastqc_spades = []
+full_process_samples = []
+
+for prfx, sample in zip(samples,samples_reads):
+    if sample['assembly']:
+        skip_fastqc_spades.append(prfx)        
+    else:
+        full_process_samples.append(prfx)
+
+print(f'Образцы для полного исследования: {full_process_samples}')
+print(f"Пропускаем шаги FastQC и SPAdes для образцов: {skip_fastqc_spades}")
 
 # Загрузка параметров
 with open('params.json', 'r') as f:
-    params = json.load(f)
+    parameters = json.load(f)
 
-outdir_path = params['global_params']
+outdir_path = parameters['global_params']
 
 # Использование параметров
-fastqc_out = os.path.abspath(f"{outdir_path['outdir']}/{params['fastqc_params']['outdir']}")
-spades_out = os.path.abspath(f'{outdir_path['outdir']}/{params['spades_params']['outdir']}')
-quast_out = os.path.abspath(f'{outdir_path['outdir']}/{params['quast_params']['outdir']}')
-prokka_out = os.path.abspath(f'{outdir_path['outdir']}/{params['prokka_params']['outdir']}')
-abricate_out = os.path.abspath(f'{outdir_path['outdir']}/{params['abricate_params']['outdir']}')
-databases = params['abricate_params']['databases']
+fastqc_out = os.path.abspath(f"{outdir_path['outdir']}/{parameters['fastqc_params']['outdir']}")
+spades_out = os.path.abspath(f'{outdir_path['outdir']}/{parameters['spades_params']['outdir']}')
+quast_out = os.path.abspath(f'{outdir_path['outdir']}/{parameters['quast_params']['outdir']}')
+prokka_out = os.path.abspath(f'{outdir_path['outdir']}/{parameters['prokka_params']['outdir']}')
+abricate_out = os.path.abspath(f'{outdir_path['outdir']}/{parameters['abricate_params']['outdir']}')
+databases = parameters['abricate_params']['databases']
 
 # Правила
 # Чтобы выполнялись все правила, нужно прописать проверку выходных файлов для всех операций,
 # в противном случае исполняются правила только указанные в rule all
 rule all:
     input:
-        expand(f'{fastqc_out}/{{sample}}_1_fastqc.html', sample=filtered_samples),
-        expand(f'{spades_out}/{{sample}}/scaffolds.fasta', sample=filtered_samples),
+        expand(f'{fastqc_out}/{{sample}}_1_fastqc.html', sample=full_process_samples),
+        expand(f'{spades_out}/{{sample}}/scaffolds.fasta', sample=full_process_samples),
         expand(f'{quast_out}/{{sample}}/report.txt', sample=samples),
         expand(f'{prokka_out}/{{sample}}/PROKKA_{today_date}.gff', sample=samples),
         expand(f'{abricate_out}/{{sample}}/results_{{db}}.tab', sample=samples, db=databases)
@@ -50,8 +65,8 @@ rule all:
 # Контроль качества ридов (FastQC)
 rule fastqc:
     input:
-        in_1 = 'test_input/{sample}_1.fastq.gz',
-        in_2 = 'test_input/{sample}_2.fastq.gz'
+        in_1 = expand(f'test_input/{{sample}}_1.fastq.gz', sample=full_process_samples),
+        in_2 = expand(f'test_input/{{sample}}_2.fastq.gz', sample=full_process_samples)
 
     conda: 'envs/fastqc.yaml'
     output:
@@ -61,7 +76,7 @@ rule fastqc:
         fatqc_zip_2 = f'{fastqc_out}/{{sample}}_2_fastqc.zip'
     params: 
         fastqc_outdir = fastqc_out,
-        threads = params['fastqc_params']['threads']
+        threads = parameters['fastqc_params']['threads']
     shell:
         'fastqc {input.in_1} {input.in_2} -o {params.fastqc_outdir}'
     
@@ -69,8 +84,8 @@ rule fastqc:
 # Сборка генома (SPAdes)
 rule spades:
     input:
-        in_1 = 'test_input/{sample}_1.fastq.gz',
-        in_2 = 'test_input/{sample}_2.fastq.gz'
+        in_1=expand(f'test_input/{{sample}}_1.fastq.gz', sample=full_process_samples),
+        in_2=expand(f'test_input/{{sample}}_2.fastq.gz', sample=full_process_samples)
     conda: "./envs/spades.yaml"
     output:
         spades_scaffolds = f'{spades_out}/{{sample}}/scaffolds.fasta',
@@ -78,7 +93,7 @@ rule spades:
 
     params: 
         spades_outdir = f'{spades_out}/{{sample}}',
-        threads = params['spades_params']['threads']
+        threads = parameters['spades_params']['threads']
     shell:
         'spades.py -1 {input.in_1} -2 {input.in_2} -o {params.spades_outdir}'
 
@@ -86,14 +101,14 @@ rule spades:
 # Оценка качества сборки (QUAST)
 rule quast:
     input:
-        in_1 = f'{spades_out}/{{sample}}/scaffolds.fasta',
-        in_2 =  f'{spades_out}/{{sample}}/contigs.fasta'
+        in_1=expand(f'{spades_out}/{{sample}}/scaffolds.fasta', sample=samples),
+        in_2=expand(f'{spades_out}/{{sample}}/contigs.fasta', sample=samples)
     conda: "./envs/quast.yaml"
     output:
         quast_report = f'{quast_out}/{{sample}}/report.txt'
     params: 
         quast_outdir = f'{quast_out}/{{sample}}',
-        threads = params['quast_params']['threads']
+        threads = parameters['quast_params']['threads']
     shell:
         'quast.py {input.in_1} {input.in_2} -o {params.quast_outdir}'
 
@@ -101,7 +116,7 @@ rule quast:
 # Аннотация генома (Prokka)
 rule prokka:
     input:
-        in_1 = f'{spades_out}/{{sample}}/scaffolds.fasta'
+        in_1=expand(f'{spades_out}/{{sample}}/scaffolds.fasta', sample=samples)
     conda: "./envs/prokka.yaml"
     output:
         prokka_annotation = f'{prokka_out}/{{sample}}/PROKKA_{today_date}.gff'
@@ -114,13 +129,14 @@ rule prokka:
 # Поиск генов устойчивости и вирулентности (Abricate)
 rule abricate:
     input:
-        in_1 = f'{spades_out}/{{sample}}/scaffolds.fasta'
+        in_1=expand(f'{spades_out}/{{sample}}/scaffolds.fasta', sample=samples)
+        # in_1 = f'{spades_out}/{{sample}}/scaffolds.fasta'
     conda: "./envs/abricate.yaml"
     output:
         f'{abricate_out}/{{sample}}/results_{{db}}.tab'
     params: 
         abricate_outdir = f'{abricate_out}/{{sample}}',
-        threads = params['quast_params']['threads']
+        threads = parameters['quast_params']['threads']
     shell:
         '''       
         abricate --db {wildcards.db} {input.in_1} --threads {params.threads} > {params.abricate_outdir}/results_{wildcards.db}.tab  \

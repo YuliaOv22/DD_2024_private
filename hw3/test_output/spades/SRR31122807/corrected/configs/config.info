@@ -1,7 +1,7 @@
 ; = HAMMER =
 ; input options: working dir, input files, offset, and possibly kmers
 dataset /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31122807/input_dataset.yaml
-input_working_dir /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31122807/tmp/hammer_l57lj0u0
+input_working_dir /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31122807/tmp/hammer__4j_bchc
 input_trim_quality			4
 input_qvoffset				
 output_dir /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31122807/corrected

@@ -14,9 +14,9 @@ dataset /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/datas
 log_filename    log.properties
 
 output_base /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919
-tmp_dir /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/tmp/spades_m_w09_ry
+tmp_dir /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/tmp/spades_ehpkgjdm
 
-main_iteration true
+main_iteration false
 ; iterative mode switcher, activates additional contigs usage
 use_additional_contigs true
 additional_contigs /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31305919/K55/simplified_contigs
@@ -44,7 +44,7 @@ sewage_matrix /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8
 scaffold_correction_mode false
 
 ; enabled (1) or disabled (0) repeat resolution (former "paired_mode")
-rr_enable true
+rr_enable false
 ; 0 for graph N50
 min_edge_length_for_is_count 0
 
@@ -76,7 +76,7 @@ compute_paths_number false
 ; End of developer_mode parameters
 
 ;if true simple mismatches are corrected
-correct_mismatches          true
+correct_mismatches false
 
 ; set it true to get statistics, such as false positive/negative, perfect match, etc.
 paired_info_statistics false

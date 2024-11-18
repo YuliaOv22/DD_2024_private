@@ -17,7 +17,7 @@
   - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31122807/corrected/configs/config.info
   config_dir: corrected
   del_after:
-  - tmp/hammer_l57lj0u0
+  - tmp/hammer__4j_bchc
   output_files:
   - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31122807/corrected/corrected.yaml
   path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/bin/spades-hammer
@@ -127,7 +127,7 @@
   config_dir: ''
   del_after:
   - .bin_reads
-  - tmp/spades_o8mxfe2g
+  - tmp/spades_ltebyvz0
   output_files: []
   path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/bin/python3
   short_name: copy_files
