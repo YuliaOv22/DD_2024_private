@@ -5,13 +5,6 @@ import re
 
 today_date = datetime.now().strftime("%m%d%Y")
 
-# # Загрузка экземпляров и выделение префикса
-# samples_path = os.path.abspath('samples.csv')
-# with open(samples_path, 'r') as f:
-#     samples = [i.strip().split(',')[1] for i in f.readlines()]
-#     samples = [re.sub(r'\_1.fastq\.gz$', '', i) for i in samples]
-# print(samples)
-
 # Загрузка экземпляров и выделение префикса
 samples_path = os.path.abspath('samples.csv')
 with open(samples_path, 'r') as f:
