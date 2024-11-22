@@ -6,6 +6,11 @@
 test_input/*
 test_output/*
 .snakemake/
+hw2/spades/
+hw4/.nextflow/
+work/
+.nextflow.log.*
+spades/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

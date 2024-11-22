@@ -1,0 +1,23 @@
+{
+    "global_params": {"outdir": "test_output", "threads": 8},
+     "fastqc_params": {
+         "threads": 4,
+         "outdir": "fastqc"
+     },
+     "spades_params": {
+         "threads": 8,
+         "outdir": "spades"
+     },
+     "quast_params": {
+         "threads": 4,
+         "outdir": "quast"
+     },
+     "prokka_params": {
+        "outdir": "prokka"
+     },
+     "abricate_params": {
+         "threads": 4,
+         "outdir": "/abricate",
+         "databases": ["ncbi", "refinder", "vfdb"]
+     }
+ }

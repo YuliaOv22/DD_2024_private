@@ -8,12 +8,12 @@ Each assignment is a new challenge, and I'm excited to share my thought process 
 ### **Tools for study:**
 
 - [x] ![Static Badge](https://img.shields.io/badge/linux-blue)
-- [ ] ![Static Badge](https://img.shields.io/badge/conda-green)
+- [x] ![Static Badge](https://img.shields.io/badge/conda-green)
 - [x] ![Static Badge](https://img.shields.io/badge/jupyter-notebook-orange)
 - [x] ![Static Badge](https://img.shields.io/badge/google-colab-orange)
 - [x] ![Static Badge](https://img.shields.io/badge/git-lightgray)
 - [x] ![Static Badge](https://img.shields.io/badge/github-lightgray)
 - [x] ![Static Badge](https://img.shields.io/badge/hugging_face-yellow)
-- [ ] ![Static Badge](https://img.shields.io/badge/snakemake%20-lightgreen)
-- [ ] ![Static Badge](https://img.shields.io/badge/nextflow-lightgreen)
+- [x] ![Static Badge](https://img.shields.io/badge/snakemake%20-lightgreen)
+- [x] ![Static Badge](https://img.shields.io/badge/nextflow-lightgreen)
 - [ ] ![Static Badge](https://img.shields.io/badge/slurm-purple)
