@@ -1,6 +1,6 @@
-# Snakemake Pipeline for Genome Assembly and Annotation 
+# Nextflow Pipeline for Genome Assembly and Annotation 
 
-This repository contains a Snakemake pipeline for genome assembly and annotation. The pipeline includes steps for quality control, genome assembly, quality assessment, and annotation. Below, you will find detailed instructions on how to set up and run the pipeline, as well as information on the input and output files.
+This repository contains a Nextflow pipeline for genome assembly and annotation. The pipeline includes steps for quality control, genome assembly, quality assessment, and annotation. Below, you will find detailed instructions on how to set up and run the pipeline, as well as information on the input and output files.
 
 Table of Contents
 - [Overview][1]
@@ -30,12 +30,7 @@ The pipeline consists of the following steps:
 - Python 3.x
 - Nextflow 24.x
 - Conda (for managing environments)
-- FastQC
-- SPAdes
-- QUAST
-- Prokka
-- Blast=2.9.0
-- Abricate
+- Docker
 
 ## Installation
 [3]: Installation
@@ -44,14 +39,13 @@ The pipeline consists of the following steps:
 
 **Clone the repository:**
 ```
-git clone https://github.com/yourusername/bioinformatics-pipeline.git
-cd bioinformatics-pipeline
+git clone
 ```
 
 **Set up the Conda environment:**
 ```
-conda env create -f environment.yaml
-conda activate bioinformatics-pipeline
+conda env create -n nextflow -c bioconda -c conda-forge nextflow
+conda activate nextflow
 ```
 
 ## Configuration
@@ -94,9 +88,10 @@ To run the pipeline, use the following command:
 
 --bash
 ```
-cd <repo name>/hw3 && snakemake --use-conda
+cd <repo name>/hw4 && nextflow run main.nf --with-docker
 ```
-This command will execute the pipeline using 4 cores and will automatically create and use the Conda environments specified in the Snakefile.
+This command will execute the pipeline will run the pipe with usind Docker containers.
+You may not write ```--with-docker``` because, it was written in nextflow.config.
 
 ## Input Files
 [6]: Input_Files
