@@ -44,8 +44,7 @@ The pipeline consists of the following steps:
 
 **Clone the repository:**
 ```
-git clone https://github.com/yourusername/bioinformatics-pipeline.git
-cd bioinformatics-pipeline
+git clone 
 ```
 
 **Set up the Conda environment:**
@@ -96,7 +95,7 @@ To run the pipeline, use the following command:
 ```
 cd <repo name>/hw3 && snakemake --use-conda
 ```
-This command will execute the pipeline using 4 cores and will automatically create and use the Conda environments specified in the Snakefile.
+This command will execute the pipeline will automatically create and use the Conda environments specified in the Snakefile.
 
 ## Input Files
 [6]: Input_Files
