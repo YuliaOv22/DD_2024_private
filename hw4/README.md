@@ -27,10 +27,19 @@ The pipeline consists of the following steps:
 ## Requirements
 [2]: Requirements
 
+### Requirements
+
 - Python 3.x
 - Nextflow 24.x
-- Conda (for managing environments)
+- Bash
+- Java 11 (or later, up to 21)
+- Git
 - Docker
+
+### Optional requirements
+
+- Singularity 2.5.x (or later)
+- Conda 4.5 (or later)
 
 ## Installation
 [3]: Installation
