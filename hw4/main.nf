@@ -74,8 +74,28 @@ process QUAST {
 
     script:
         """
-        mkdir -p quast
+        mkdir quast
         quast.py ${scaffolds} ${contigs} -o quast/${sample_id}
+        """
+}
+
+// Аннотация генома (PROKKA)
+process PROKKA {
+
+    publishDir "${params.outdir}/", mode: 'copy'
+
+    tag "PROKKA on $sample_id"
+
+    input:         
+        tuple val(sample_id), path(scaffolds)
+
+    output:
+        path "prokka/${sample_id}"
+
+    script:
+        """
+        mkdir prokka
+        prokka --outdir prokka/${sample_id} --force ${scaffolds} 
         """
 }
 
@@ -87,12 +107,18 @@ workflow {
     FASTQC(read_pairs_ch) | view { println "\n-----FASTQC out----- \n$it"}
     SPADES(read_pairs_ch) | view { println "\n-----SPADES out-----\n$it"}
 
-    quast_ch = SPADES.out.map { dir ->
+    spades_ch = SPADES.out.map { dir ->
         def sample_id = dir.getName()
         def scaffolds = file("${dir}/scaffolds.fasta")
         def contigs = file("${dir}/contigs.fasta")
         return tuple(sample_id, scaffolds, contigs)
     }
 
-    QUAST(quast_ch) | view { println "\n-----QUAST out-----\n$it" }
+    QUAST(spades_ch) | view { println "\n-----QUAST out-----\n$it" }
+
+    spades_ch
+        .map { it.take(2) }
+        .set { spades_filtered_ch }
+
+    PROKKA(spades_filtered_ch) | view { println "\n-----PROKKA out-----\n$it" }
 }
