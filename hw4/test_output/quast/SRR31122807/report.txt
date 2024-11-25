@@ -1,25 +1,25 @@
 All statistics are based on contigs of size >= 500 bp, unless otherwise noted (e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
 
-Assembly                    scaffolds  contigs
-# contigs (>= 0 bp)         79         80     
-# contigs (>= 1000 bp)      8          9      
-# contigs (>= 5000 bp)      3          4      
-# contigs (>= 10000 bp)     2          1      
-# contigs (>= 25000 bp)     0          0      
-# contigs (>= 50000 bp)     0          0      
-Total length (>= 0 bp)      78847      78747  
-Total length (>= 1000 bp)   51528      51428  
-Total length (>= 5000 bp)   39399      39299  
-Total length (>= 10000 bp)  32251      15198  
-Total length (>= 25000 bp)  0          0      
-Total length (>= 50000 bp)  0          0      
-# contigs                   25         26     
-Largest contig              17053      15198  
-Total length                62761      62661  
-GC (%)                      40.67      40.67  
-N50                         15198      7404   
-N90                         796        796    
-auN                         9860.0     7564.9 
-L50                         2          3      
-L90                         14         15     
-# N's per 100 kbp           159.33     0.00   
+Assembly                    scaffolds
+# contigs (>= 0 bp)         79       
+# contigs (>= 1000 bp)      8        
+# contigs (>= 5000 bp)      3        
+# contigs (>= 10000 bp)     2        
+# contigs (>= 25000 bp)     0        
+# contigs (>= 50000 bp)     0        
+Total length (>= 0 bp)      78847    
+Total length (>= 1000 bp)   51528    
+Total length (>= 5000 bp)   39399    
+Total length (>= 10000 bp)  32251    
+Total length (>= 25000 bp)  0        
+Total length (>= 50000 bp)  0        
+# contigs                   25       
+Largest contig              17053    
+Total length                62761    
+GC (%)                      40.67    
+N50                         15198    
+N90                         796      
+auN                         9860.0   
+L50                         2        
+L90                         14       
+# N's per 100 kbp           159.33   

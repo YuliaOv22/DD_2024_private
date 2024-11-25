@@ -1,28 +1,21 @@
 #!/usr/bin/env nextflow
 
-params.sample_id = "SRR31122807"
-params.indir = "${projectDir}/test_input"
-params.outdir = "${projectDir}/test_output"
-params.reads = "${params.indir}/${params.sample_id}_{1,2}.fastq.gz"
-params.scaffolds_fasta_file = "${params.outdir}/spades/${params.sample_id}/scaffolds.fasta"
-params.contigs_fasta_file = "${params.outdir}/spades/${params.sample_id}/contigs.fasta"
+
 
 log.info """\
     F S Q P A - N F   P I P E L I N E
     ===================================    
     indir                 : ${params.indir}
     outdir                : ${params.outdir}
-    reads                 : ${params.reads}
-    scaffolds             : ${params.scaffolds_fasta_file}
-    contigs               : ${params.contigs_fasta_file}
-
+    parse_csv             : ${params.parse_csv}
+    databases             : ${params.databases}
     """
     .stripIndent()
 
 // Контроль качества ридов (FastQC)
 process FASTQC {
 
-    publishDir "${params.outdir}/", mode: 'copy'
+    publishDir { params.paths.fastqc(sample_id) }, mode: 'copy'
 
     tag "FASTQC on $sample_id"
 
@@ -30,19 +23,18 @@ process FASTQC {
         tuple val(sample_id), path(reads)
 
     output:
-        path "fastqc"
+        path "*_fastqc.{zip,html}"
 
     script:
         """
-        mkdir fastqc
-        fastqc ${reads} -o fastqc
+        fastqc ${reads}
         """
 }
 
 // Сборка генома (SPAdes)
 process SPADES {
 
-    publishDir "${params.outdir}/", mode: 'copy'
+    publishDir { params.paths.spades(sample_id) }, mode: 'copy'
 
     tag "SPADES on $sample_id"
 
@@ -50,39 +42,41 @@ process SPADES {
         tuple val(sample_id), path(reads)
 
     output:
-        path "spades/${sample_id}"
+        tuple val(sample_id), path("*s.fasta"), emit: assembly_output
 
     script:
         """
-        mkdir spades
-        spades.py -1 ${reads[0]} -2 ${reads[1]} -o spades/${sample_id}
+        spades.py -1 ${reads[0]} -2 ${reads[1]} -o ./
         """
 }
 
 // Оценка качества сборки (QUAST)
 process QUAST {
 
-    publishDir "${params.outdir}/", mode: 'copy'
+    publishDir { params.paths.quast(sample_id) }, mode: 'copy'
 
     tag "QUAST on $sample_id"
 
     input:         
-        tuple val(sample_id), path(scaffolds), path(contigs)
+        // tuple val(sample_id), path(scaffolds), path(contigs)
+        tuple val(sample_id), path(scaffolds)
 
     output:
-        path "quast/${sample_id}"
+        path("report.txt")
 
     script:
+        // """
+        // quast.py ${scaffolds} ${contigs} -o ${sample_id}
+        // """
         """
-        mkdir quast
-        quast.py ${scaffolds} ${contigs} -o quast/${sample_id}
+        quast.py ${scaffolds} -o ./
         """
 }
 
 // Аннотация генома (PROKKA)
 process PROKKA {
 
-    publishDir "${params.outdir}/", mode: 'copy'
+    publishDir { params.paths.prokka(sample_id) }, mode: 'copy'
 
     tag "PROKKA on $sample_id"
 
@@ -90,35 +84,151 @@ process PROKKA {
         tuple val(sample_id), path(scaffolds)
 
     output:
-        path "prokka/${sample_id}"
+        path("*.gff")
 
     script:
         """
-        mkdir prokka
-        prokka --outdir prokka/${sample_id} --force ${scaffolds} 
+        prokka --outdir ./ --force ${scaffolds} 
         """
 }
 
-workflow {
-    Channel
-        .fromFilePairs(params.reads, checkIfExists: true)  
-        .set { read_pairs_ch }
+// Поиск генов устойчивости и вирулентности (ABRICATE)
+process ABRICATE {
 
-    FASTQC(read_pairs_ch) | view { println "\n-----FASTQC out----- \n$it"}
-    SPADES(read_pairs_ch) | view { println "\n-----SPADES out-----\n$it"}
+    publishDir { params.paths.abricate(sample_id) }, mode: 'copy'
 
-    spades_ch = SPADES.out.map { dir ->
-        def sample_id = dir.getName()
-        def scaffolds = file("${dir}/scaffolds.fasta")
-        def contigs = file("${dir}/contigs.fasta")
-        return tuple(sample_id, scaffolds, contigs)
-    }
+    tag "ABRICATE on $sample_id using $db"
 
-    QUAST(spades_ch) | view { println "\n-----QUAST out-----\n$it" }
+    input:         
+        tuple val(sample_id), path(scaffolds), val(db)
 
-    spades_ch
-        .map { it.take(2) }
-        .set { spades_filtered_ch }
+    output:
+        path("results_${db}.tab")
 
-    PROKKA(spades_filtered_ch) | view { println "\n-----PROKKA out-----\n$it" }
+    script:
+        """   
+        mkdir -p ${sample_id}
+        abricate --db ${db} ${scaffolds} > ./results_${db}.tab  \
+        || echo "No results found" > ./results_${db}.tab         
+        """
 }
+
+
+workflow {
+
+    // Парсинг файла samples.csv
+    Channel
+        .fromPath(params.parse_csv)
+        .splitCsv(skip: 1)
+        .map { row ->         
+            def sample_id = row[0]
+            def reads = (params.indir + row[1] + ', ' + params.indir + row[2])
+                ?.replaceAll(/[\[\]]/, '') 
+                ?.split(',')
+                ?: []
+            def assembly = row[3] ?: null
+            
+            // Создаем пути для выходов процессов
+            def sample_paths = [
+                fastqc: params.paths.fastqc(sample_id),
+                spades: params.paths.spades(sample_id),
+                quast: params.paths.quast(sample_id),
+                prokka: params.paths.prokka(sample_id),
+                abricate: params.paths.abricate(sample_id),
+            ]
+                   
+            return tuple(sample_id, reads, assembly, sample_paths)
+            
+        }
+        .branch {
+            need_assembly: it[2] == null
+            has_assembly: it[2] != null
+        }
+        .set { samples_ch }
+    
+
+    // ОБРАЗЦЫ БЕЗ СБОРКИ
+    no_assembly(samples_ch.need_assembly)
+
+    // ОБРАЗЦЫ СО СБОРКОЙ
+    exist_assembly(samples_ch.has_assembly)
+}
+
+workflow no_assembly {
+
+    take:
+    samples_ch
+
+    main:
+    
+    // Создаем канал для FASTQC из образцов, требующих сборки
+    def read_pairs_ch = samples_ch
+        .map { sample_id, reads, assembly, paths ->
+            // Создаем паттерн для fromFilePairs из путей к ридам
+            def pattern = reads.collect { it.trim() }  // получаем пути к файлам
+            return tuple(sample_id, pattern)
+        } 
+    
+    // Запуск процесса FASTQC
+    FASTQC(read_pairs_ch)
+    
+    // Запуск процесса SPADES
+    SPADES(read_pairs_ch)
+
+    // Канал для записи выхода сборки генома
+    spades_ch = SPADES.out
+        .map { it ->
+            def sample_id = it[0]
+            def scaffolds = file(it[1][1])
+            return tuple(sample_id, scaffolds)
+        }    
+            
+    // Запуск процесса QUAST
+    QUAST(spades_ch)
+
+    // PROKKA(spades_filtered_ch)
+    PROKKA(spades_ch)
+    
+    // Канал для поиска генов устойчивости и вирулентности
+    abricate_ch = spades_ch
+        .combine(Channel.fromList(params.databases))
+        .map { sample_id, scaffolds, db -> 
+            tuple(sample_id, scaffolds, db) 
+        }
+
+    // Запуск процесса ABRICATE
+    ABRICATE(abricate_ch)  
+
+}
+
+workflow exist_assembly {
+
+    take:
+    samples_ch
+
+    main:
+    
+    // Канал для записи выхода сборки генома
+    scaffolds_fasta_ch = samples_ch
+        .map { sample_id, reads, assembly, paths ->
+            def scaffolds = file("${params.indir}/${assembly}")
+            return tuple(sample_id, scaffolds)
+        } 
+   
+    // Запуск процесса QUAST
+    QUAST(scaffolds_fasta_ch)    
+
+    // Запуск процесса PROKKA
+    PROKKA(scaffolds_fasta_ch)
+
+    // Канал для поиска генов устойчивости и вирулентности
+    abricate_ch = scaffolds_fasta_ch
+        .combine(Channel.fromList(params.databases))
+        .map { sample_id, scaffolds, db -> 
+            tuple(sample_id, scaffolds, db) 
+        }
+
+    // Запуск процесса ABRICATE
+    ABRICATE(abricate_ch)
+
+    }
