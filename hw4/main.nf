@@ -1,7 +1,5 @@
 #!/usr/bin/env nextflow
 
-
-
 log.info """\
     F S Q P A - N F   P I P E L I N E
     ===================================    
@@ -12,7 +10,7 @@ log.info """\
     """
     .stripIndent()
 
-// Контроль качества ридов (FastQC)
+// Контроль качества ридов (FASTQC)
 process FASTQC {
 
     publishDir { params.paths.fastqc(sample_id) }, mode: 'copy'
@@ -31,7 +29,7 @@ process FASTQC {
         """
 }
 
-// Сборка генома (SPAdes)
+// Сборка генома (SPADES)
 process SPADES {
 
     publishDir { params.paths.spades(sample_id) }, mode: 'copy'
@@ -128,7 +126,7 @@ workflow {
                 ?: []
             def assembly = row[3] ?: null
             
-            // Создаем пути для выходов процессов
+            // Создание путей для выходов процессов
             def sample_paths = [
                 fastqc: params.paths.fastqc(sample_id),
                 spades: params.paths.spades(sample_id),
@@ -161,11 +159,11 @@ workflow no_assembly {
 
     main:
     
-    // Создаем канал для FASTQC из образцов, требующих сборки
+    // Канал для FASTQC из образцов, требующих сборки
     def read_pairs_ch = samples_ch
         .map { sample_id, reads, assembly, paths ->
-            // Создаем паттерн для fromFilePairs из путей к ридам
-            def pattern = reads.collect { it.trim() }  // получаем пути к файлам
+            // Паттерн для fromFilePairs из путей к ридам
+            def pattern = reads.collect { it.trim() }  // получение путей к файлам
             return tuple(sample_id, pattern)
         } 
     
@@ -186,7 +184,7 @@ workflow no_assembly {
     // Запуск процесса QUAST
     QUAST(spades_ch)
 
-    // PROKKA(spades_filtered_ch)
+    // Запуск процесса PROKKA
     PROKKA(spades_ch)
     
     // Канал для поиска генов устойчивости и вирулентности

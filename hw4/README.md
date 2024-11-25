@@ -38,7 +38,6 @@ The pipeline consists of the following steps:
 
 ### Optional requirements
 
-- Singularity 2.5.x (or later)
 - Conda 4.5 (or later)
 
 ## Installation
@@ -60,34 +59,23 @@ conda activate nextflow
 ## Configuration
 [4]: Configuration
 
-The pipeline uses a params.json file to configure parameters such as output directories and tool-specific settings. Below is an example of the params.json file:
+The pipeline uses a `nextflow.config` file to configure parameters such as output directories and tool-specific settings. Below is an example:
 
---json
+--config
 ```
-{
-    "fastqc_out": "test_output/fastqc",
-    "spades_out": "test_output/spades",
-    "quast_out": "test_output/quast",
-    "prokka_out": "test_output/prokka",
-    "abricate_out": "test_output/abricate",
-    "databases": ["ncbi", "resfinder", "vfdb"],
-    "fastqc_params": {
-        "threads": 4
-    },
-    "spades_params": {
-        "threads": 8
-    },
-    "quast_params": {
-        "threads": 4
-    },
-    "prokka_params": {
-        "kingdom": "Bacteria",
-        "genus": "Escherichia",
-        "species": "coli"
-    },
-    "abricate_params": {
-        "threads": 4
-    }
+params {
+    indir = "${projectDir}/test_input/"
+    outdir = "${projectDir}/test_output/"
+    parse_csv = "${projectDir}/samples.csv"
+    databases = ["ncbi", "refinder", "vfdb"]
+    
+    paths = [
+        fastqc: { sid -> "${params.outdir}/fastqc/${sid}" },
+        spades: { sid -> "${params.outdir}/spades/${sid}" },
+        quast:  { sid -> "${params.outdir}/quast/${sid}" },
+        prokka:  { sid -> "${params.outdir}/prokka/${sid}" },
+        abricate:  { sid -> "${params.outdir}/abricate/${sid}" },
+    ]
 }
 ```
 
@@ -99,15 +87,15 @@ To run the pipeline, use the following command:
 ```
 cd <repo name>/hw4 && nextflow run main.nf --with-docker
 ```
-This command will execute the pipeline will run the pipe with usind Docker containers.
-You may not write ```--with-docker``` because, it was written in nextflow.config.
+This command will execute the pipeline will run the pipe with using Docker containers.
+You may not write ```--with-docker``` because, it was written in `nextflow.config`.
 
 ## Input Files
 [6]: Input_Files
 
-The pipeline expects paired-end FASTQ files in the test_input directory. The filenames should follow the pattern {sample}_1.fastq.gz and {sample}_2.fastq.gz.
-In addition input files can contain assambly with the pattern {sample}_scaffolds.fasta.
-Samples is read from the file sample.csv.
+The pipeline expects paired-end FASTQ files in the test_input directory. The filenames should follow the pattern `{sample}_1.fastq.gz` and `{sample}_2.fastq.gz`.
+In addition input files can contain assambly with the pattern `{sample}_scaffolds.fasta`.
+Samples is read from the file `sample.csv`.
 
 Examples:
 
@@ -124,11 +112,12 @@ Below is an example of the sample.csv file:
 
 --csv
 ```
-1,SRR31122807_1.fastq.gz,SRR31122807_2.fastq.gz
-2,SRR31305919_1.fastq.gz,SRR31305919_2.fastq.gz,SRR31305919_scaffolds.fasta
+sample_id,reads,assembly
+SRR31122807,[SRR31122807_1.fastq.gz,SRR31122807_2.fastq.gz],
+SRR31305919,[SRR31305919_1.fastq.gz,SRR31305919_2.fastq.gz],SRR31305919_scaffolds.fasta
 ```
 
-Download reads you can on the website of [**National Library of Medicine**](https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/)
+You can download reads on the website of [**National Library of Medicine**](https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/)
 
 --conda
 ```
@@ -142,11 +131,11 @@ fastq-dump --split-files --gzip SRR31122807.sra
 
 The pipeline generates the following output files:
 
-- FastQC: Quality control reports in HTML and ZIP formats.
-- SPAdes: Assembled scaffolds and contigs in FASTA format.
-- QUAST: Quality assessment report in various types format.
-- Prokka: Genome annotation in various types format.
-- Abricate: Annotation analysis reports in TAB format (can be customized).
+- FastQC: Quality control reports in `.html` and `.zip` formats.
+- SPAdes: Assembled scaffolds and contigs in `.fasta` format.
+- QUAST: Quality assessment report in `.txt` format (can be customized).
+- Prokka: Genome annotation in `.gff` format (can be customized).
+- Abricate: Annotation analysis reports in `.tab` format (can be customized).
 
 
 ## Troubleshooting
@@ -154,13 +143,13 @@ The pipeline generates the following output files:
 
 If you encounter any issues while running the pipeline, please check the following:
 
-**Input Files**: Ensure that the input FASTQ files are correctly named and placed in the test_input directory.
+**Input Files**: Ensure that the input `.fasta` files are correctly named and placed in the test_input directory.
 
 **Permissions**: Ensure that you have the necessary permissions to read and write files in the working directory.
 
 **Dependencies**: Ensure that all required tools are installed and available in the Conda environment.
 
-**Warning** Support for alternative conda frontends has been deprecated in favor of simpler support and code base. This should not cause issues since current conda releases rely on fast solving via libmamba. Ignoring the alternative conda frontend setting (mamba).
+**Docker**: Ensure that the Docker daemon is running. If you use Desktop Docker in Windows and WSL, check `Resources - Integration WSL`, Ubuntu-xx.xx must be turn on.
 
 ## License
 [9]: License
