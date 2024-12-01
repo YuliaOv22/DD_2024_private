@@ -64,18 +64,12 @@ The pipeline uses a `nextflow.config` file to configure parameters such as outpu
 --config
 ```
 params {
-    indir = "${projectDir}/test_input/"
-    outdir = "${projectDir}/test_output/"
-    parse_csv = "${projectDir}/samples.csv"
-    databases = ["ncbi", "refinder", "vfdb"]
-    
-    paths = [
-        fastqc: { sid -> "${params.outdir}/fastqc/${sid}" },
-        spades: { sid -> "${params.outdir}/spades/${sid}" },
-        quast:  { sid -> "${params.outdir}/quast/${sid}" },
-        prokka:  { sid -> "${params.outdir}/prokka/${sid}" },
-        abricate:  { sid -> "${params.outdir}/abricate/${sid}" },
-    ]
+    indir = "test_input/"
+    outdir = "test_output/"
+    samples_csv = "samples.csv"
+    databases = ["ncbi", "refinder", "vfdb"]   
+    spades = ["threads": 4, "memory": 16]
+    prokka = ["genus": "Escherichia"]
 }
 ```
 
@@ -94,7 +88,7 @@ You may not write ```--with-docker``` because, it was written in `nextflow.confi
 [6]: Input_Files
 
 The pipeline expects paired-end FASTQ files in the test_input directory. The filenames should follow the pattern `{sample}_1.fastq.gz` and `{sample}_2.fastq.gz`.
-In addition input files can contain assambly with the pattern `{sample}_scaffolds.fasta`.
+In addition input files can contain assambly with the pattern `scaffolds.fasta`.
 Samples is read from the file `sample.csv`.
 
 Examples:
@@ -105,16 +99,16 @@ test_input/
 ├── SRR31122807_2.fastq.gz
 ├── SRR31305919_1.fastq.gz
 ├── SRR31305919_2.fastq.gz
-└── SRR31305919_scaffolds.fasta
+└── scaffolds.fasta
 ```
 
 Below is an example of the sample.csv file:
 
 --csv
 ```
-sample_id,reads,assembly
-SRR31122807,[SRR31122807_1.fastq.gz,SRR31122807_2.fastq.gz],
-SRR31305919,[SRR31305919_1.fastq.gz,SRR31305919_2.fastq.gz],SRR31305919_scaffolds.fasta
+sample_id,read_1,read_2,assembly
+SRR31122807,SRR31122807_1.fastq.gz,SRR31122807_2.fastq.gz,
+SRR31305919,SRR31305919_1.fastq.gz,SRR31305919_2.fastq.gz,scaffolds.fasta
 ```
 
 You can download reads on the website of [**National Library of Medicine**](https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/)
@@ -132,10 +126,10 @@ fastq-dump --split-files --gzip SRR31122807.sra
 The pipeline generates the following output files:
 
 - FastQC: Quality control reports in `.html` and `.zip` formats.
-- SPAdes: Assembled scaffolds and contigs in `.fasta` format.
-- QUAST: Quality assessment report in `.txt` format (can be customized).
-- Prokka: Genome annotation in `.gff` format (can be customized).
-- Abricate: Annotation analysis reports in `.tab` format (can be customized).
+- SPAdes: Assembled scaffolds in `.fasta` format.
+- QUAST: Quality assessment report in various types format.
+- Prokka: Genome annotation in various types format.
+- Abricate: Annotation analysis reports in various types format.
 
 
 ## Troubleshooting
