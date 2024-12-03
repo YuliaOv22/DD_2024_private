@@ -17,18 +17,18 @@
   - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31122807/corrected/configs/config.info
   config_dir: corrected
   del_after:
-  - tmp/hammer__4j_bchc
+  - tmp/hammer_vhd6nhik
   output_files:
   - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31122807/corrected/corrected.yaml
-  path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/bin/spades-hammer
+  path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/33531fc135f11d2020ead4ff44c10065_/bin/spades-hammer
   short_name: ec_runtool
 - STAGE: corrected reads compression
   args:
-  - /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/share/spades/spades_pipeline/scripts/compress_all.py
+  - /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/33531fc135f11d2020ead4ff44c10065_/share/spades/spades_pipeline/scripts/compress_all.py
   - --input_file
   - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31122807/corrected/corrected.yaml
   - --ext_python_modules_home
-  - /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/share/spades
+  - /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/33531fc135f11d2020ead4ff44c10065_/share/spades
   - --max_threads
   - '16'
   - --output_dir
@@ -37,7 +37,7 @@
   config_dir: ''
   del_after: []
   output_files: []
-  path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/bin/python3
+  path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/33531fc135f11d2020ead4ff44c10065_/bin/python3
   short_name: ec_compress
 - STAGE: Read error correction
   args: []
@@ -59,7 +59,7 @@
   config_dir: K21
   del_after: []
   output_files: []
-  path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/bin/spades-core
+  path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/33531fc135f11d2020ead4ff44c10065_/bin/spades-core
   short_name: k21
 - STAGE: K33
   args:
@@ -67,7 +67,7 @@
   config_dir: K33
   del_after: []
   output_files: []
-  path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/bin/spades-core
+  path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/33531fc135f11d2020ead4ff44c10065_/bin/spades-core
   short_name: k33
 - STAGE: K55
   args:
@@ -75,7 +75,7 @@
   config_dir: K55
   del_after: []
   output_files: []
-  path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/bin/spades-core
+  path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/33531fc135f11d2020ead4ff44c10065_/bin/spades-core
   short_name: k55
 - STAGE: K77
   args:
@@ -83,7 +83,7 @@
   config_dir: K77
   del_after: []
   output_files: []
-  path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/bin/spades-core
+  path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/33531fc135f11d2020ead4ff44c10065_/bin/spades-core
   short_name: k77
 - STAGE: K99
   args:
@@ -91,7 +91,7 @@
   config_dir: K99
   del_after: []
   output_files: []
-  path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/bin/spades-core
+  path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/33531fc135f11d2020ead4ff44c10065_/bin/spades-core
   short_name: k99
 - STAGE: K127
   args:
@@ -99,11 +99,11 @@
   config_dir: K127
   del_after: []
   output_files: []
-  path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/bin/spades-core
+  path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/33531fc135f11d2020ead4ff44c10065_/bin/spades-core
   short_name: k127
 - STAGE: Copy files
   args:
-  - /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/share/spades/spades_pipeline/scripts/copy_files.py
+  - /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/33531fc135f11d2020ead4ff44c10065_/share/spades/spades_pipeline/scripts/copy_files.py
   - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31122807/K127/before_rr.fasta
   - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31122807/before_rr.fasta
   - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31122807/K127/assembly_graph_after_simplification.gfa
@@ -127,9 +127,9 @@
   config_dir: ''
   del_after:
   - .bin_reads
-  - tmp/spades_ltebyvz0
+  - tmp/spades_xbsyj5i9
   output_files: []
-  path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/bin/python3
+  path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/33531fc135f11d2020ead4ff44c10065_/bin/python3
   short_name: copy_files
 - STAGE: Assembling
   args: []
@@ -140,7 +140,7 @@
   short_name: as_finish
 - STAGE: Breaking scaffolds
   args:
-  - /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/share/spades/spades_pipeline/scripts/breaking_scaffolds_script.py
+  - /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/33531fc135f11d2020ead4ff44c10065_/share/spades/spades_pipeline/scripts/breaking_scaffolds_script.py
   - --result_scaffolds_filename
   - /home/juliaju_o/DD_2024_private/hw3/test_output/spades/SRR31122807/scaffolds.fasta
   - --misc_dir
@@ -150,7 +150,7 @@
   config_dir: ''
   del_after: []
   output_files: []
-  path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/15f1d1553dae8a09f12c051b989597f4_/bin/python3
+  path: /home/juliaju_o/DD_2024_private/hw3/.snakemake/conda/33531fc135f11d2020ead4ff44c10065_/bin/python3
   short_name: bs
 - STAGE: Terminate
   args: []

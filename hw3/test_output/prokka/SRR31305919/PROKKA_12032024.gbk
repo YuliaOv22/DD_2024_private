@@ -1,5 +1,5 @@
 LOCUS       NODE_1_length_17115_cov_466.37291017115 bp   DNA linear
-18-NOV-2024
+03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -380,7 +380,7 @@ ORIGIN
     17101 acagtaaagt acaaa
 //
 LOCUS       NODE_2_length_15198_cov_4.97564915198 bp   DNA linear
-18-NOV-2024
+03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -795,7 +795,7 @@ ORIGIN
     15181 gttagactta aatagcac
 //
 LOCUS       NODE_3_length_7148_cov_337.2681957148 bp   DNA linear
-18-NOV-2024
+03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1017,7 +1017,7 @@ ORIGIN
      7141 cttaaaag
 //
 LOCUS       NODE_4_length_4940_cov_443.5003124940 bp   DNA linear
-18-NOV-2024
+03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1152,7 +1152,7 @@ ORIGIN
      4861 taaacgaaca atgtttgttt ttcttgtttt attgccacta gtctctagtc agtgtgttaa
      4921 tcttataacc agaactcaat
 //
-LOCUS       NODE_5_length_2255_cov_2.6343982255 bp   DNA linear     18-NOV-2024
+LOCUS       NODE_5_length_2255_cov_2.6343982255 bp   DNA linear     03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1232,7 +1232,7 @@ ORIGIN
      2161 tcagtgcagg atgtcgcagg tgctacctgg agcctctgac cctggggtct caaaaccagg
      2221 atggagcctc cagcatccct gtgtgcccca gaaac
 //
-LOCUS       NODE_6_length_2183_cov_2.4289882183 bp   DNA linear     18-NOV-2024
+LOCUS       NODE_6_length_2183_cov_2.4289882183 bp   DNA linear     03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1293,7 +1293,7 @@ ORIGIN
      2101 ttccttcttg ctactatacg atacaccatt tgaacatcaa ctctatcttt attacgcttt
      2161 ctcttctaca catctcccac acc
 //
-LOCUS       NODE_7_length_1658_cov_4.1332461658 bp   DNA linear     18-NOV-2024
+LOCUS       NODE_7_length_1658_cov_4.1332461658 bp   DNA linear     03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1349,7 +1349,7 @@ ORIGIN
      1621 cgccagctac aatgagccat ccaacaactg ccagaaac
 //
 LOCUS       NODE_8_length_1093_cov_291.2650101093 bp   DNA linear
-18-NOV-2024
+03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1385,7 +1385,7 @@ ORIGIN
      1021 caagaaaaac aaacattgtt cgtttagttg ttaacaagaa catcactaga aataacaact
      1081 ctgttgtttt ctc
 //
-LOCUS       NODE_9_length_911_cov_1.123724911 bp   DNA linear       18-NOV-2024
+LOCUS       NODE_9_length_911_cov_1.123724911 bp   DNA linear       03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1418,7 +1418,7 @@ ORIGIN
       841 attcatgaca gctgtccata cggatgcagc gttgcatgat tctcactcca ggcttaatct
       901 tccctttggc a
 //
-LOCUS       NODE_10_length_851_cov_0.838398851 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_10_length_851_cov_0.838398851 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1461,7 +1461,7 @@ ORIGIN
       781 gttggcgcag gaagaagtac atgggggagt gcagggcagg gctgacctgt gtgaggagga
       841 tgatcaggga g
 //
-LOCUS       NODE_11_length_826_cov_1.204578826 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_11_length_826_cov_1.204578826 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1492,7 +1492,7 @@ ORIGIN
       721 aaaaagaaca ataaaaaagt aaggacggct caagaactgc ctctaatcca catccccgac
       781 cccacgagac tccttggaac cccctatgcc cccttcccct ctaaaa
 //
-LOCUS       NODE_12_length_810_cov_0.941435810 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_12_length_810_cov_0.941435810 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1532,7 +1532,7 @@ ORIGIN
       721 agtctttgtc tacagagaat aaagtcatct gttgatttgc ttaacattaa agatagttaa
       781 atagggtaac ttagacataa aatacacagt
 //
-LOCUS       NODE_13_length_796_cov_1.467862796 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_13_length_796_cov_1.467862796 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1563,7 +1563,7 @@ ORIGIN
       721 cccacccatc tgcaggagcg cgaggcggcc cggacgatgc acggtgctcc agcttcctct
       781 acataccctt tctcat
 //
-LOCUS       NODE_14_length_724_cov_1.422111724 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_14_length_724_cov_1.422111724 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1601,7 +1601,7 @@ ORIGIN
       661 gctgaggagt tccatgatct gccgcctgca agcctgggaa ctcaggactc ctgaagtgta
       721 actg
 //
-LOCUS       NODE_15_length_703_cov_1.164931703 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_15_length_703_cov_1.164931703 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1630,7 +1630,7 @@ ORIGIN
       601 aagggaaaga cgaagaggag gaggggactg gggaccttgg cagtggcctg gaagccctga
       661 gaatcaccac cccttccctg ggggtgatag gaaggtgcta gac
 //
-LOCUS       NODE_16_length_622_cov_2.258586622 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_16_length_622_cov_2.258586622 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1658,7 +1658,7 @@ ORIGIN
       541 tcctttgagg tgctgcgtga tttctgtgag agtggggttt aaatccagtc cctgaagagt
       601 gggaggatga gcactgagtg ag
 //
-LOCUS       NODE_17_length_612_cov_1.255670612 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_17_length_612_cov_1.255670612 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1694,7 +1694,7 @@ ORIGIN
       541 aatctgactc ccatctcctt cttcccaccc atcacagtcc tttctcttat acacatcccc
       601 gcacaccacg ca
 //
-LOCUS       NODE_18_length_586_cov_0.793028586 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_18_length_586_cov_0.793028586 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1729,7 +1729,7 @@ ORIGIN
       481 ttttgactcc cccaaactta attactaata gcctcctgtt gactggaagc cttacctgta
       541 acaaactgcc aagtaacaca tattttgtgt aggtattata tattgt
 //
-LOCUS       NODE_19_length_539_cov_1.502427539 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_19_length_539_cov_1.502427539 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1755,7 +1755,7 @@ ORIGIN
       421 ggagctagaa gtgagataga acaggatttg ggctggggaa tggaaggtcc ttcccaccca
       481 gcttccctgt gactttctga ggctcccatg ctggctggca gcctccctgt cttcagagc
 //
-LOCUS       NODE_20_length_525_cov_1.763819525 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_20_length_525_cov_1.763819525 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1781,7 +1781,7 @@ ORIGIN
       421 tcaaagctgg tcagggcgac ttcaaagctc agactctgtc cactctagta tcttgccact
       481 gacatcatca ctgtgtctag tccatatgat aaatggtgtt cctac
 //
-LOCUS       NODE_21_length_513_cov_1.222798513 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_21_length_513_cov_1.222798513 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1807,7 +1807,7 @@ ORIGIN
       421 ggaagggaca cagtcacata caaaggaaaa agtccatgtg aaaatggaga cgagatcagt
       481 tactgctgcc acatgctatg gaatgccaga agc
 //
-LOCUS       NODE_22_length_513_cov_0.932642513 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_22_length_513_cov_0.932642513 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1833,7 +1833,7 @@ ORIGIN
       421 agccggggca cggtgcgcaa ctccccgcat ggtgctgcat ggcggagggc tgccagcctt
       481 cgggagggtc ccatccttgg caccggccat gga
 //
-LOCUS       NODE_23_length_511_cov_0.479167511 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_23_length_511_cov_0.479167511 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1859,7 +1859,7 @@ ORIGIN
       421 ctttatgcat atacatacac atttgtgggg gtcacatgac tatgagtgaa attgttggct
       481 tttgcgatgt ggtcttggtg gggttttatt t
 //
-LOCUS       NODE_24_length_510_cov_1.237598510 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_24_length_510_cov_1.237598510 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1885,7 +1885,7 @@ ORIGIN
       421 aatggggcac ggagaggtga agtaacttgc cccaagtcac gttgctagaa aggaataaaa
       481 ctggattcaa gccagagtct aggtatggcc
 //
-LOCUS       NODE_25_length_494_cov_0.899183494 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_25_length_494_cov_0.899183494 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1911,7 +1911,7 @@ ORIGIN
       421 ggaggtggct ttcctaggac acaagttctg ctggggagcc ccagactgca ggagcttggt
       481 tctggaccca ggac
 //
-LOCUS       NODE_26_length_465_cov_1.272189465 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_26_length_465_cov_1.272189465 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1936,7 +1936,7 @@ ORIGIN
       361 catccttcag agtcggttgc atgtgtctct catggaatac ccacacaagc aaaaacgggg
       421 cctcagggtg ccgtcagctg accacaagga ctcagaggga cattg
 //
-LOCUS       NODE_27_length_461_cov_0.736527461 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_27_length_461_cov_0.736527461 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1962,7 +1962,7 @@ ORIGIN
       421 aatatgatca ttttataaaa gaaaatacat gggcttagat g
 //
 LOCUS       NODE_28_length_453_cov_160.171779453 bp   DNA linear
-18-NOV-2024
+03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -1987,7 +1987,7 @@ ORIGIN
       361 agagactagt ggcaataaaa caagaaaaac aaacattgtt cgtttagttg ttaacaagaa
       421 catcactaga aataacaact ctgttgtttt ctc
 //
-LOCUS       NODE_29_length_445_cov_0.666667445 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_29_length_445_cov_0.666667445 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2012,7 +2012,7 @@ ORIGIN
       361 ggtggtgtgc gtgtcggcgc tggcgtgtgg tggtggtggt tgggtgaggg gcgctgcggg
       421 tgggtgggcc gggggatcac gtggg
 //
-LOCUS       NODE_30_length_443_cov_0.753165443 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_30_length_443_cov_0.753165443 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2037,7 +2037,7 @@ ORIGIN
       361 atctttgggc aaagcaagat aagtgtactc tcacattgct gggcatggtg tctcatgcct
       421 gtaatcccag cactttggga ggc
 //
-LOCUS       NODE_31_length_439_cov_0.750000439 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_31_length_439_cov_0.750000439 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2062,7 +2062,7 @@ ORIGIN
       361 gacaccgacc cctggctctc cctcctgcat ccttccgtcg cctccgacgg tttctggggt
       421 gcggcgcgcg gtgggggcg
 //
-LOCUS       NODE_32_length_439_cov_0.682692439 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_32_length_439_cov_0.682692439 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2087,7 +2087,7 @@ ORIGIN
       361 tgtatagtca tacaatagaa ttttatttgg caataaaaag gaatgaagca ctgatgcctg
       421 ctgcagcatg gatgaacct
 //
-LOCUS       NODE_33_length_433_cov_1.405229433 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_33_length_433_cov_1.405229433 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2121,7 +2121,7 @@ ORIGIN
       361 ggatcatcgt ctttttctag gacattgtat tgaacagcag ctgtgtatgt ggagccctcg
       421 tgaagtttat tca
 //
-LOCUS       NODE_34_length_431_cov_0.815789431 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_34_length_431_cov_0.815789431 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2146,7 +2146,7 @@ ORIGIN
       361 aaaaaggcaa aggaatagaa agtaaccaaa ttaggatacg cagaaaacag cacatttata
       421 tatatatatg t
 //
-LOCUS       NODE_35_length_431_cov_0.776316431 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_35_length_431_cov_0.776316431 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2171,7 +2171,7 @@ ORIGIN
       361 gtaggccaga agtctctatc attagaatgc tgggttttgt caaaattctc tcccactaga
       421 atacctgggg a
 //
-LOCUS       NODE_36_length_421_cov_0.697279421 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_36_length_421_cov_0.697279421 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2196,7 +2196,7 @@ ORIGIN
       361 gaggtatccg gcagaaagtc ctgatgcatg ctgtagggaa tgtctgaaca gagaactgca
       421 g
 //
-LOCUS       NODE_37_length_418_cov_1.580756418 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_37_length_418_cov_1.580756418 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2228,7 +2228,7 @@ ORIGIN
       301 acactaggat agaaaaagcc tttgggaaat agatttttag acagtaaaac attttcatcc
       361 tgccttttat atgtatttta gaatgtttta atgatagaat tttcagatga tataatag
 //
-LOCUS       NODE_38_length_417_cov_0.855172417 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_38_length_417_cov_0.855172417 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2260,7 +2260,7 @@ ORIGIN
       301 caaaattaaa gagaaagtga aatgcattca tttgtccgaa gatactgctg aagatttgaa
       361 aataaaagta ctagaaaaat aatgagacat ttacggtgta gttgtataaa agtacag
 //
-LOCUS       NODE_39_length_417_cov_0.672414417 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_39_length_417_cov_0.672414417 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2284,7 +2284,7 @@ ORIGIN
       301 acagaactgc aaaatcagaa acagaaaaag gataggatgt ctttccagcc gatctacttc
       361 agaattaaga aaatgttcag aatttggaca tgcaatggga caaataccat attaata
 //
-LOCUS       NODE_40_length_409_cov_1.510638409 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_40_length_409_cov_1.510638409 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2308,7 +2308,7 @@ ORIGIN
       301 cccactcata gcttggcttg tcatctcaga cagaacctcc aagcttggca tgatggagac
       361 accagtgggt tctgttccca cctcctggca cctctgctga ggttatagc
 //
-LOCUS       NODE_41_length_409_cov_0.755319409 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_41_length_409_cov_0.755319409 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2332,7 +2332,7 @@ ORIGIN
       301 tagactctgt cttaaaacta agaattgatg tattggcagg aacagctgga cattcaagat
       361 gtttttgtga ttcctttttt aaaaatctcc ttttgtacct gtaatatct
 //
-LOCUS       NODE_42_length_404_cov_0.855596404 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_42_length_404_cov_0.855596404 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2356,7 +2356,7 @@ ORIGIN
       301 atttttgact tgttggttta aagtccattt tgtctgaaat tagaatagca accctgcctt
       361 ttttgtttta catttgcttg gtagattttt ctccatccct ttac
 //
-LOCUS       NODE_43_length_399_cov_0.900735399 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_43_length_399_cov_0.900735399 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2380,7 +2380,7 @@ ORIGIN
       301 tgcttttttt tttttttaca ttaagcacta agcctgtgtt tttatgtgca cggtttggga
       361 aataagatgg aggtgtgtgt gtgtgtaggt gtgtgtgtg
 //
-LOCUS       NODE_44_length_397_cov_0.900000397 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_44_length_397_cov_0.900000397 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2412,7 +2412,7 @@ ORIGIN
       301 caggttatgt tctggaagcc cctttacaga gggattgaat agcatctctt cctaaaaatt
       361 catttcggcc tgtggggtgg atgggtgaac acagacg
 //
-LOCUS       NODE_45_length_396_cov_0.858736396 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_45_length_396_cov_0.858736396 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2436,7 +2436,7 @@ ORIGIN
       301 cctgttgaga gagctgtttt gatacagtct atttgtagta tctgcaagtg gatatttgga
       361 gcaatttgaa gcctatgttt taaaaggaaa tatctt
 //
-LOCUS       NODE_46_length_395_cov_0.925373395 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_46_length_395_cov_0.925373395 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2460,7 +2460,7 @@ ORIGIN
       301 attgcagcac tttttgcaat agtcaagttt tggaatcaac ctaagtgtct atcaacagat
       361 aaatggataa agaaaatata gtatatatac agagt
 //
-LOCUS       NODE_47_length_394_cov_0.921348394 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_47_length_394_cov_0.921348394 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2484,7 +2484,7 @@ ORIGIN
       301 ctctgcagga cggcgggaga gttacgtgtc agcgtgagaa cgtcttctct gcagcctttc
       361 acagcttgcc taggctgagt tcctctttta gcaa
 //
-LOCUS       NODE_48_length_393_cov_0.909774393 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_48_length_393_cov_0.909774393 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2508,7 +2508,7 @@ ORIGIN
       301 gtacaagctg ctattgtttc ttgctggggc gatttgagag cttcttaact tagccttttt
       361 gtcttactcc tgggctgatg gtgtcttctc cat
 //
-LOCUS       NODE_49_length_392_cov_0.705660392 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_49_length_392_cov_0.705660392 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2532,7 +2532,7 @@ ORIGIN
       301 caggtcgtgt ttgtgaagca ctagccctgg cacatagcag gtgctcagtt aacaggtgac
       361 tgtatgttca gcagtgaggg atggcagagt at
 //
-LOCUS       NODE_50_length_392_cov_0.600000392 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_50_length_392_cov_0.600000392 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2564,7 +2564,7 @@ ORIGIN
       301 ccactcccat ccaccacata gacattctcc acaccttact tggactctga cattctgctc
       361 catatccatt ggggaagtcc accttactca gc
 //
-LOCUS       NODE_51_length_390_cov_1.794677390 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_51_length_390_cov_1.794677390 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2588,7 +2588,7 @@ ORIGIN
       301 ctctgtctct agcggaaggc ctccacaagt gaagacaggg ccgaatagtg atgtgggcag
       361 gccacaggga ctcagggggg atctcgaggc
 //
-LOCUS       NODE_52_length_389_cov_0.935115389 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_52_length_389_cov_0.935115389 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2612,7 +2612,7 @@ ORIGIN
       301 cccttcctga aactcagcca tattcaggtc ctcaaactgt gtgaggtgga atacaaccca
       361 ttaaatccct aaccaccgtt gtttttgtc
 //
-LOCUS       NODE_53_length_383_cov_0.746094383 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_53_length_383_cov_0.746094383 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2645,7 +2645,7 @@ ORIGIN
       301 acatagtttg tgaactttga tatttcatgt acagtatata atatatattg gggtacattg
       361 atattttatg tacagtatat aat
 //
-LOCUS       NODE_54_length_380_cov_0.956522380 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_54_length_380_cov_0.956522380 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2677,7 +2677,7 @@ ORIGIN
       301 gtgagatatt aaagcagtgc atagatatgt agatatacaa gtcatagatt tcactaaatg
       361 atctccaggc atcctttaac
 //
-LOCUS       NODE_55_length_237_cov_26.609091237 bp   DNA linear     18-NOV-2024
+LOCUS       NODE_55_length_237_cov_26.609091237 bp   DNA linear     03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2699,7 +2699,7 @@ ORIGIN
       181 ttttatctta ctaatgatgt ttctttttta gcacatattc agtggatggt tatgttc
 //
 LOCUS       NODE_56_length_207_cov_642.050000207 bp   DNA linear
-18-NOV-2024
+03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2720,7 +2720,7 @@ ORIGIN
       121 aaatttattt actaatatgt ttacaccact aattcaacct attggtgctt tggacatatc
       181 agcatctata gtagctggtg gtattgt
 //
-LOCUS       NODE_57_length_207_cov_95.162500207 bp   DNA linear     18-NOV-2024
+LOCUS       NODE_57_length_207_cov_95.162500207 bp   DNA linear     03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2742,7 +2742,7 @@ ORIGIN
       181 tgtcattcat tgtactctgt ttaacac
 //
 LOCUS       NODE_58_length_206_cov_259.126582206 bp   DNA linear
-18-NOV-2024
+03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2763,7 +2763,7 @@ ORIGIN
       121 atataatttc gcaccatttt tcgcttttaa gtgttatgga gtgtctccta ctaaattaaa
       181 tgatctctgc tttactaatg tctatg
 //
-LOCUS       NODE_59_length_206_cov_51.126582206 bp   DNA linear     18-NOV-2024
+LOCUS       NODE_59_length_206_cov_51.126582206 bp   DNA linear     03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2785,7 +2785,7 @@ ORIGIN
       181 ggcacaagtt tgtaatatta ggaaat
 //
 LOCUS       NODE_60_length_201_cov_191.567568201 bp   DNA linear
-18-NOV-2024
+03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2806,7 +2806,7 @@ ORIGIN
       121 gccaccaaat ttgcatctgt ttatgcttgg aacaggaaga gaatcagcaa ctgtgttgct
       181 gattattctg tcctatataa t
 //
-LOCUS       NODE_61_length_191_cov_83.437500191 bp   DNA linear     18-NOV-2024
+LOCUS       NODE_61_length_191_cov_83.437500191 bp   DNA linear     03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2827,7 +2827,7 @@ ORIGIN
       121 ttaaaagcga aaaatggtgc gaaattatat aggacagaat aatcagcaac acagttgctg
       181 attctcttcc t
 //
-LOCUS       NODE_62_length_191_cov_51.187500191 bp   DNA linear     18-NOV-2024
+LOCUS       NODE_62_length_191_cov_51.187500191 bp   DNA linear     03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2848,7 +2848,7 @@ ORIGIN
       121 gtctatgcag attcatttgt aattagaggt aatgaagtca gccaaatcgc tccagggcaa
       181 actggaaata t
 //
-LOCUS       NODE_63_length_181_cov_85.351852181 bp   DNA linear     18-NOV-2024
+LOCUS       NODE_63_length_181_cov_85.351852181 bp   DNA linear     03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2869,7 +2869,7 @@ ORIGIN
       121 tgcaaatttg gtggcgttaa aaacttcatc aaaagggcac aagtttgtaa tattaggaaa
       181 t
 //
-LOCUS       NODE_64_length_181_cov_50.111111181 bp   DNA linear     18-NOV-2024
+LOCUS       NODE_64_length_181_cov_50.111111181 bp   DNA linear     03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2890,7 +2890,7 @@ ORIGIN
       121 atataatttc gcaccatttt tcgcttttaa gtgttatgga gtgtctccta ctaaattaaa
       181 t
 //
-LOCUS       NODE_65_length_181_cov_34.685185181 bp   DNA linear     18-NOV-2024
+LOCUS       NODE_65_length_181_cov_34.685185181 bp   DNA linear     03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2911,7 +2911,7 @@ ORIGIN
       121 atataatttc gcaccatttt tcgcttttaa gtgttatgga gtgtctccta ctaaattaaa
       181 t
 //
-LOCUS       NODE_66_length_181_cov_22.148148181 bp   DNA linear     18-NOV-2024
+LOCUS       NODE_66_length_181_cov_22.148148181 bp   DNA linear     03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2932,7 +2932,7 @@ ORIGIN
       121 tgcaaatctg gtggcgttaa aaacttcatc aaaagggcac aagtttgtaa tattaggaaa
       181 t
 //
-LOCUS       NODE_67_length_179_cov_17.192308179 bp   DNA linear     18-NOV-2024
+LOCUS       NODE_67_length_179_cov_17.192308179 bp   DNA linear     03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2953,7 +2953,7 @@ ORIGIN
       121 gcttccattg agaagtctaa cataataaga ggctggattt ttggtactac tttagattc
 //
 LOCUS       NODE_68_length_176_cov_539.979592176 bp   DNA linear
-18-NOV-2024
+03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2974,7 +2974,7 @@ ORIGIN
       121 aggaaatcta acaatagatt ctgttggttg gactctaaag ttagaagttt gataga
 //
 LOCUS       NODE_69_length_176_cov_103.816327176 bp   DNA linear
-18-NOV-2024
+03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -2995,7 +2995,7 @@ ORIGIN
       121 aggaaatcta acaatagatt ctgttggttg gactctaaag ttagaagttt gataga
 //
 LOCUS       NODE_70_length_175_cov_718.520833175 bp   DNA linear
-18-NOV-2024
+03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -3015,7 +3015,7 @@ ORIGIN
        61 ttacaccact aattcaacct attggtgctt tggacatatc agcatctata gtagctggtg
       121 gtattgtggc tatcgtagta acatgccttg cctactattt tatgaggttt agaag
 //
-LOCUS       NODE_71_length_175_cov_72.250000175 bp   DNA linear     18-NOV-2024
+LOCUS       NODE_71_length_175_cov_72.250000175 bp   DNA linear     03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -3035,7 +3035,7 @@ ORIGIN
        61 ttacaccact aattcaacct attggtgctt tggacatatc agcatctata gtagctggtg
       121 gtattgtagc tatcgtagta acatgccttg cctactattt tatgaggttt agaag
 //
-LOCUS       NODE_72_length_175_cov_28.687500175 bp   DNA linear     18-NOV-2024
+LOCUS       NODE_72_length_175_cov_28.687500175 bp   DNA linear     03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -3056,7 +3056,7 @@ ORIGIN
       121 ttagtaaata aatttacagc atctacacca cagaaaactc ctggtaaaga tctgt
 //
 LOCUS       NODE_73_length_152_cov_712.120000152 bp   DNA linear
-18-NOV-2024
+03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -3077,7 +3077,7 @@ ORIGIN
       121 gccaccagat ttgcatctgt ttatgcttgg aa
 //
 LOCUS       NODE_74_length_152_cov_105.240000152 bp   DNA linear
-18-NOV-2024
+03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -3097,7 +3097,7 @@ ORIGIN
        61 tgtcctatat aatctcgcac catttttcac ttttaagtgt tatggagtgt ctcctactaa
       121 attaaatgat ctctgcttta ctaatgtcta tg
 //
-LOCUS       NODE_75_length_152_cov_82.280000152 bp   DNA linear     18-NOV-2024
+LOCUS       NODE_75_length_152_cov_82.280000152 bp   DNA linear     03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -3117,7 +3117,7 @@ ORIGIN
        61 tgtcctatat aatttcgcac catttttcgc ttttaagtgt tatggagtgt ctcctactaa
       121 attaaatgat ctctgcttta ctaatgtcta tg
 //
-LOCUS       NODE_76_length_145_cov_27.111111145 bp   DNA linear     18-NOV-2024
+LOCUS       NODE_76_length_145_cov_27.111111145 bp   DNA linear     03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -3137,7 +3137,7 @@ ORIGIN
        61 agaagagctt ttggtgaata cagtcatgta gttgccttta atactttact attccttatg
       121 tcattcactg tactctgttt aacac
 //
-LOCUS       NODE_77_length_145_cov_21.666667145 bp   DNA linear     18-NOV-2024
+LOCUS       NODE_77_length_145_cov_21.666667145 bp   DNA linear     03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -3158,7 +3158,7 @@ ORIGIN
       121 tcattcactg tactctgttt aacac
 //
 LOCUS       NODE_78_length_134_cov_1088.428571134 bp   DNA linear
-18-NOV-2024
+03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -3178,7 +3178,7 @@ ORIGIN
        61 tcctcagttt tacattcaac tcaggacttg ttcttacctt tcttttccaa tgttacttgg
       121 ttccatgcta taca
 //
-LOCUS       NODE_79_length_134_cov_90.571429134 bp   DNA linear     18-NOV-2024
+LOCUS       NODE_79_length_134_cov_90.571429134 bp   DNA linear     03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -3198,7 +3198,7 @@ ORIGIN
        61 tcctcagttt tacattcaac tcaggacttg ttcttacctt tcttttccaa tgttacttgg
       121 ttccatgtta tctc
 //
-LOCUS       NODE_80_length_134_cov_7.857143134 bp   DNA linear      18-NOV-2024
+LOCUS       NODE_80_length_134_cov_7.857143134 bp   DNA linear      03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -3219,7 +3219,7 @@ ORIGIN
       121 acgcattacg catt
 //
 LOCUS       NODE_81_length_128_cov_172.000000128 bp   DNA linear
-18-NOV-2024
+03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
@@ -3240,7 +3240,7 @@ ORIGIN
       121 tttttttt
 //
 LOCUS       NODE_82_length_128_cov_151.000000128 bp   DNA linear
-18-NOV-2024
+03-DEC-2024
 DEFINITION  Genus species strain strain.
 ACCESSION   
 VERSION
