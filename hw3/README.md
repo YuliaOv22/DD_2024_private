@@ -49,8 +49,8 @@ git clone
 
 **Set up the Conda environment:**
 ```
-conda env create -f environment.yaml
-conda activate bioinformatics-pipeline
+conda env create -n snakemake -c bioconda -c conda-forge -c defaults snakemake=8.25.5
+conda activate snakemake
 ```
 
 ## Configuration
